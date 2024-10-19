@@ -13,7 +13,7 @@ void walkingpath(int src, int dest){
 
 int main(){
     int dest;
-    cout<<"Enter the destination ";
+    cout<<"Enter the destination: ";
     cin>>dest;
 
     int src;

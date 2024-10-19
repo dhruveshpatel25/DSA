@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+//Jaggered Array is the type of array in which the no. of coulmns on each row is variable
 int main(){
     int rows;
     cout<<"Enter the no. of rows: ";
