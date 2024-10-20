@@ -3,13 +3,15 @@
 using namespace std;
 
 void solve(vector<int>& arr,vector<int> output,int index, vector<vector<int>>& ans){
+    //base case
     if(index >= arr.size()){
         ans.push_back(output);
         return;
     }
-
+    //exclude
     solve(arr,output,index+1,ans);
-
+    
+    //include
     int element = arr[index];
     output.push_back(element);
     solve(arr,output,index+1,ans);

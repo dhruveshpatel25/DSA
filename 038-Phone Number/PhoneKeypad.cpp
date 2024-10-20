@@ -29,9 +29,12 @@ vector<string> keypad(string& str){
 }
 
 int main() {
-    string str = "2";
+    string str;
+    cin>>str;
     vector<string> result = keypad(str);
+    cout<<"[";
     for (const auto& combination : result) {
         cout << combination <<" ";
     }
+    cout<<"]";
 }

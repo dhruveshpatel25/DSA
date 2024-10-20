@@ -3,13 +3,14 @@
 using namespace std;
 
 void solve(string str,string output,int index,vector<string>& ans){
+    //base case
     if(index>=str.length()){
         ans.push_back(output);
         return;
     }
-
+    //exclude
     solve(str,output,index+1,ans);
-
+    //include
     output.push_back(str[index]);
     solve(str,output,index+1,ans);
 }

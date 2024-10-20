@@ -10,6 +10,7 @@ void solve(vector<int>& arr, int index, vector<vector<int>>& ans){
     for(int i= index ;i<arr.size();i++){
         swap(arr[index],arr[i]);
         solve(arr,index+1,ans);
+        //backtracking  
         swap(arr[i],arr[index]);
     }
 }
