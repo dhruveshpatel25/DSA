@@ -1,6 +1,9 @@
-015-HomeWork
+015-BeatifulTriplets
+015-EKO-SPOJ
+015-PRATA-SPOJ
 033-HomeWork
 034-HomeWork
+039-HomeWork
 047-Detect Cycle
 052-Clone Linked List
 069-HomeWork
