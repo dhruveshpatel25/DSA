@@ -20,8 +20,25 @@ class Node{
     }
 };
 
-Node * Split(Node* head){
-    
+Node* Split(Node* head){
+    if(head == NULL || head->next==head){
+        return head;
+    }
+    Node* slow = head;
+    Node* fast = head;
+    while(fast->next!=head /*for odd length*/&& fast->next->next!=head/*for even length*/){
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+    //adjusting for even length
+    if(fast->next->next==head){
+        fast=fast->next;
+    }
+
+    Node* head2=slow->next;
+    fast->next=head2;
+    slow->next=head;    
+    return head2;
 }
 
 void InsertAtTail(Node* &head, Node* &tail, int data){
@@ -39,11 +56,13 @@ void InsertAtTail(Node* &head, Node* &tail, int data){
 
 void print(Node* &head,Node* &tail){
     Node* temp=head;
+    if(head == NULL) return;
     while(temp->next != head){
         cout<<temp->data<<" ";
         temp=temp->next;
     }
     cout<<temp->data;
+    cout<<endl;
 }
 
 int main(){
@@ -53,5 +72,10 @@ int main(){
     InsertAtTail(head,tail,2);
     InsertAtTail(head,tail,3);
     InsertAtTail(head,tail,4);
+    InsertAtTail(head,tail,5);
+    InsertAtTail(head,tail,6);
     print(head,tail);
+    Node* head2=Split(head);
+    print(head,tail);
+    print(head2,tail);
 }

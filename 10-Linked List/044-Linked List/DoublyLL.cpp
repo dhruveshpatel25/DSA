@@ -12,6 +12,14 @@ class Node{
         this->prev=NULL;
         this->next=NULL;
     }
+    ~Node(){
+        int value = this->data;
+        if(this->next!=NULL){
+            delete next;
+            this->next=NULL;
+            this->prev=NULL;
+        }
+    }
 };
 
 void InsertAtStart(Node* &head,Node* &tail,int data){
@@ -30,6 +38,7 @@ void InsertAtStart(Node* &head,Node* &tail,int data){
 void InsertAtTail(Node* &head,Node* &tail,int data){
     if(tail==NULL){
         Node* temp=new Node(data);
+        head=temp;
         tail=temp;
     }else{
         Node* temp=new Node(data);
@@ -58,6 +67,7 @@ void InsertInMiddle(Node* &head,Node* &tail,int pos,int data){
     Node* NodeToInsert=new Node(data);
     NodeToInsert->next=temp->next;
     NodeToInsert->prev=temp;
+    temp->next->prev=NodeToInsert;
     temp->next=NodeToInsert;
     NodeToInsert=temp;
 }
@@ -82,6 +92,7 @@ void Delete(Node* &head, Node* &tail,int pos){
         previ->next=curr->next;
         curr->next->prev=previ;
         curr->next=NULL;
+        curr->prev=NULL;
         delete curr;
     }
 }
