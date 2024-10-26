@@ -47,6 +47,7 @@ int celebrity(vector<vector<int>>& M,int n){
         if(onecount!=n-1){
             return -1;
         }
+        return ans;
     }
 }
 

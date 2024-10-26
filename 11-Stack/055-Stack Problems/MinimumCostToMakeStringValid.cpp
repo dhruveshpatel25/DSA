@@ -37,7 +37,7 @@ int MinimumCost(string str){
 }
 
 int main() {
-    string str = "{{{{{{{";
+    string str = "{{{{{{{}";
     cout << "Minimum Cost: " << MinimumCost(str) << endl;
     return 0;
 }

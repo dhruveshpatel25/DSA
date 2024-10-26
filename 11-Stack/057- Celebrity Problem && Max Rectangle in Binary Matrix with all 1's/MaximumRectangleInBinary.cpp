@@ -4,7 +4,7 @@
 #include<vector>
 using namespace std;
 
-const int MAX = 1000;
+const int MAX = 100;
 
 vector<int> NextSmaller(int* arr,int n){
 
@@ -29,7 +29,7 @@ vector<int> PrevSmaller(int* arr,int n){
     stk.push(-1);
     vector<int> ans(n);
 
-    for(int i=0;i<=n-1;i++){
+    for(int i=0;i<n;i++){
         int curr=arr[i];
         while(stk.top()!=-1 && arr[stk.top()]>=curr){
             stk.pop();
@@ -47,7 +47,7 @@ int LargestRectangleArea(int* height,int n){
     vector<int> prev(n);
     prev=PrevSmaller(height,n);
 
-    int area=INT_MIN;
+    int area=0;
     for(int i=0;i<n;i++){
         int length=height[i];
         if(next[i]==-1){
@@ -86,5 +86,5 @@ int main() {
     int maxRectArea = maximumRectangle(M, n, m);
     cout << "Maximum rectangular area: " << maxRectArea << endl;
 
-    //return 0;
+   return 0;
 }
