@@ -16,15 +16,23 @@ class DEQueue{
     }
 
     void PushFront(int data){
+
+        //check overflow
         if((front==0 && rear==size-1) || (front !=0 && rear==(front-1)%(size-1))){
             cout<<"Queue is Full"<<endl;
         }
+
+        //when queue is empty
         else if(front==-1){
             front=rear=0;
         }
+
+        //when queue is at 0th index
         else if(front==0 && rear != size-1){
             front=size-1;
         }
+
+        //normal case
         else{
             front--;
         }
@@ -32,15 +40,23 @@ class DEQueue{
     }
 
     void PushBack(int data){
+
+        //check overflow
         if((front==0 && rear==size-1) || (front !=0 && rear==(front-1)%(size-1))){
             cout<<"Queue is Full"<<endl;
         }
+
+        //when queue is empty
         else if(front==-1){
             front=rear=0;
         }
+
+        //when rear is at last index and the queue is not full
         else if(rear==size-1 && front!=0){
             rear=0;
         }
+
+        //normal case
         else{
             rear++;
         }
@@ -48,17 +64,25 @@ class DEQueue{
     }
 
     int PopFront(){
+
+        //when queue is empty
         if(front==-1){
             return -1;
         }
         int ans=arr[front];
         arr[front]=-1;
+
+        //when only single element was present
         if(front==rear){
             front=rear=-1;
         }
+
+        //when elements are present in start of queue
         else if(front==size-1){
             front=0;
         }
+
+        //normal case
         else{
             front++;
         }
@@ -66,17 +90,25 @@ class DEQueue{
     }
 
     int PopBack(){
+
+        //when queue is empty
         if(front==-1){
             return -1;
         }
         int ans=arr[rear];
         arr[rear]=-1;
+
+        //when only single element was present
         if(front==rear){
             front=rear=-1;
         }
+
+        //when elements are present in the last part of queue
         else if(rear==0){
             rear=size-1;
         }
+
+        //normal case
         else{
             rear--;
         }

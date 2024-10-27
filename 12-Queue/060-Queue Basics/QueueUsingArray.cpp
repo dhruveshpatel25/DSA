@@ -18,6 +18,8 @@ class Queue{
     }
 
     void enqueue(int data){
+
+        //check overflow
         if(rear==size){
             cout<<"Queue is Full"<<endl;
         }else{
@@ -27,12 +29,16 @@ class Queue{
     }
 
     int dequeue(){
+
+        //check unerflow condition
         if(qfront==rear){
             cout<<"Queue is Empty";
         }else{
             int ans=arr[qfront];
             arr[qfront]=-1;
             qfront++;
+            
+            //to avoid wastage of spacce
             if(qfront==rear){
                 qfront=0;
                 rear=0;
@@ -41,6 +47,7 @@ class Queue{
         }
     }
 
+// return the front value of queue
     int front(){
         if(qfront==rear){
             return -1;

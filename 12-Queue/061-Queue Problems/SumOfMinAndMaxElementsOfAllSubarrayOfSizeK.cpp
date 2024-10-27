@@ -6,14 +6,20 @@ int sumOfMaxandMin(int *arr,int size,int windowsize){
     deque<int> maxi(windowsize);
     deque<int> mini(windowsize);
 
+    //addition of first windowsize 
     for(int i=0;i<windowsize;i++){
+
+        //loop till you get maximum value
         while(!maxi.empty() && arr[maxi.back()]<=arr[i]){
             maxi.pop_back();
         }
 
+        //loop till you get minimum value
         while(!mini.empty() && arr[mini.back()]>=arr[i]){
             mini.pop_back();
         }
+
+        //push back index value of current index
         maxi.push_back(i);
         mini.push_back(i);
     }

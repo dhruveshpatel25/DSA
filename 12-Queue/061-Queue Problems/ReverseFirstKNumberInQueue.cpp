@@ -16,7 +16,8 @@ queue<int> reverseknumber(queue<int> que,int k){
         stk.pop();
         que.push(val);
     }
-
+    
+    //push the remaing part of queue back to queue
     int rem = que.size()-k;
     while(rem--){
         int val = que.front();

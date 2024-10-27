@@ -22,6 +22,7 @@ string NonRepeating(string str){
                 break;
             }
         }
+        //pushing '#' for repeating elements
         if(que.empty()){
             ans.push_back('#');
         }

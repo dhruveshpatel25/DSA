@@ -32,21 +32,29 @@ class Queue{
 
     void enqueue(int data){
         Node* temp= new Node(data);
+
+        //when queue gets empty
         if(qfront==rear){
             qfront=rear=temp;
-        }else{
+        }
+        
+        //normal case
+        else{
             rear->next=temp;
             rear=temp;
         }
     }
 
     int dequeue(){
+        //check underflow
         if(qfront==NULL){
             return -1;
         }
         Node *temp=qfront;
         int data=qfront->data;
         qfront=qfront->next;
+
+        //when there is single element
         if(qfront==NULL){
             rear=NULL;
         }

@@ -4,39 +4,24 @@
 using namespace std;
 
 queue<int> interleaving(queue<int> que){
-    stack<int> stk;
-    for(int i=0;i<=que.size()/2;i++){
+    queue<int> newque;
+    int halfSize=que.size()/2;
+
+    for(int i=0;i<halfSize;i++){
         int val=que.front();
         que.pop();
-        stk.push(val);
+        newque.push(val);
     }
 
-    while(!stk.empty()){
-        int val=stk.top();
-        stk.pop();
-        que.push(val);
-    }
-
-    for(int i=0;i<que.size()/2;i++){
-        int val=que.front();
-        que.pop();
-        que.push(val);
-    }
-
-    for(int i=0;i<=que.size()/2;i++){
-        int val=que.front();
-        que.pop();
-        stk.push(val);
-    }
-
-    while(!stk.empty()){
-        int val=stk.top();
-        stk.pop();
+    while(!newque.empty()){
+        int val=newque.front();
+        newque.pop();
         que.push(val);
         val=que.front();
         que.pop();
         que.push(val);
     }
+
     return que;
 }
 
@@ -48,6 +33,7 @@ int main() {
     myQueue.push(3);
     myQueue.push(4);
     myQueue.push(5);
+    myQueue.push(6);
 
     // Call interleaving function
     queue<int> interleavedQueue = interleaving(myQueue);

@@ -10,31 +10,49 @@ class SpecialStack{
 
     public:
     void push(int data){
+
+        //for first element
         if(stk.empty()){
             stk.push(data);
             mini=data;
         }else{
+
+            //check data if data is less than the minimum in stack
             if(data<mini){
-                stk.push(2*data-mini);
+                stk.push(2*data-mini); //hashing the value as it can use to retrieve the minimum value when pop operation is performed as we have to solve on O(1) space
                 mini=data;
             }else{
+                //if the data is more than minimum
                 stk.push(data);
             }
         }
     }
 
     int pop(){
+
+        //check underflow
         if(stk.empty()){
             return -1;
         }
+
+
         int curr = stk.top();
         stk.pop();
+
+        //if current value from stack in more than minimum value present
         if(curr>mini){
             return curr;
         }else{
+            //store the minimum value
             int prevmini=mini;
+
+            //get the previous minimum value from the stack which was hashed in push operation
             int val=2*mini-curr;
+
+            //store the new minimum value
             mini=val;
+
+            //return the minimum value of current stack
             return prevmini;
         }
     }
