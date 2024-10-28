@@ -39,20 +39,33 @@ pair<bool,int> sumTree(Node* root){
         return p;
     }
 
+    //handling leaf condition
     if(root->left==NULL && root->right==NULL){
-        pair<bool,int> p = make_pair(false,root->data);
+        pair<bool,int> p = make_pair(true,root->data);
         return p;
     }
 
+    //recursively iterate left subtree
     pair<bool,int> left= sumTree(root->left);
+
+    //recursively iterate right subtree
     pair<bool,int> right= sumTree(root->right);
 
+    //checking if left subtree is sumtree or not
     bool leftAns=left.first;
+
+    //checking if right subtree is sumtree or not
     bool rightAns=right.first;
+
+    //check the condition - root data is sum of left and right subtree
     bool codn= root->data == left.second+right.second;
     pair<bool,int> ans;
+
+    //check if all condition are true
     if(leftAns&&rightAns&&codn){
         ans.first=true;
+
+        //root->data + right subtree->data + left subtree->data
         ans.second=2*root->data;
     }else{
         ans.first=false;
@@ -74,3 +87,4 @@ int main() {
 
     return 0;
 }
+//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1

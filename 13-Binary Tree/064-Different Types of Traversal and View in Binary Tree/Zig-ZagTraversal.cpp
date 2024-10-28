@@ -40,15 +40,19 @@ vector<int> zigzagTraversal(Node* root){
     }
     queue<Node*> que;
     que.push(root);
+
+    //creating flag
     bool LeftToRight=true;
     while(!que.empty()){
         int size=que.size();
         vector<int> ans(size);
-
         for(int i=0;i<size;i++){
+
+            //process level
             Node* frontNode=que.front();
             que.pop();
             
+            //checks whether the flow is left to right or right to left
             int index=LeftToRight? i:size-i-1;
             ans[index]=frontNode->data;
 
@@ -60,7 +64,11 @@ vector<int> zigzagTraversal(Node* root){
                 que.push(frontNode->right);
             }
         }
+
+        //change the direction for zig-zag traversal
         LeftToRight=!LeftToRight;
+
+        //pushing the elements in result
         for(auto i:ans){
             result.push_back(i);
         }
@@ -85,3 +93,5 @@ int main() {
 
     return 0;
 }
+
+//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1

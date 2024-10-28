@@ -34,46 +34,51 @@ Node* buildtree(Node *root){
     return root;
 }
 
-vector<int> topview(Node* root){
+vector<int> diagonalTraversal(Node* root){
+
+    //store the answer
     vector<int> ans;
+
+    //for breadth-first search
+    queue<Node*> que;
+
+    //base case
     if(root==NULL){
         return ans;
     }
 
-    map<int,int> TopNode;
-    queue<pair<Node*,int>> que;
-    que.push(make_pair(root,0));
+    //push the root node
+    que.push(root);
     while(!que.empty()){
-        pair<Node*,int>temp=que.front();
+        Node* temp=que.front();
         que.pop();
-        Node* frontNode = temp.first;
-        int horizontaldistance = temp.second;
 
-        if(TopNode.find(horizontaldistance)==TopNode.end()){
-            TopNode[horizontaldistance]=frontNode->data;
-        }
+        //process each node along the diagonal line
+        while(temp){
 
-        if(frontNode->left){
-            que.push(make_pair(frontNode->left,horizontaldistance-1));
-        }
+            //if there is left child for that node put it to next diagonal line
+            if(temp->left){
+                que.push(temp->left);
+            }
 
-        if(frontNode->right){
-            que.push(make_pair(frontNode->right,horizontaldistance+1));
+            //add the data of current node to answer
+            ans.push_back(temp->data);
+
+            //iterate to next node along diagonal
+            temp=temp->right;
         }
     }
-    for(auto i:TopNode){
-        ans.push_back(i.second);
-    }
+    return ans;
 }
 
 int main() {
     Node* root = NULL;
     root = buildtree(root);
 
-    cout << "Top view of the binary tree: ";
-    vector<int> result = topview(root);
-    for (int i = 0; i < result.size(); ++i) {
-        cout << result[i] << " ";
+    cout << "Diagonal Traversal of the binary tree: ";
+    vector<int> diagonalResult = diagonalTraversal(root);
+    for (int i = 0; i < diagonalResult.size(); ++i) {
+        cout << diagonalResult[i] << " ";
     }
     cout << endl;
 

@@ -35,15 +35,20 @@ Node* buildtree(Node *root){
 }
 
 void solve(Node* root,vector<int> &ans,int level){
+    //base case
     if(root==NULL){
         return;
     }
 
+    //only push the first value for that particular level
     if(level==ans.size()){
         ans.push_back(root->data);
     }
 
+    //recursively iterate right subtree first as it is right view
     solve(root->right,ans,level+1);
+
+    //then recursively iterate right subtree 
     solve(root->left,ans,level+1);
 }
 
@@ -66,3 +71,5 @@ int main() {
 
     return 0;
 }
+
+//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1

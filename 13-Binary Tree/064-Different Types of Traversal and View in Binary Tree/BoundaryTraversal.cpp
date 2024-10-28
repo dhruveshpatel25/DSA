@@ -34,53 +34,84 @@ Node* buildtree(Node *root){
 }
 
 void TraversalLeft(Node* root, vector<int> &ans){
+    //base case and leftmost leafnode not to be included
     if((root==NULL)||(root->left==NULL && root->right==NULL)){
         return;
     }
+
+    //push back current node
     ans.push_back(root->data);
+
+    //recursively iterate to left
     if(root->left){
         TraversalLeft(root->left,ans);
-    }else{
+    }
+    //if left does not exist then only iterative to right
+    else{
         TraversalLeft(root->right,ans);
     }
 }
 
 void TraversalLeaf(Node* root,vector<int> &ans){
+    //base case
     if(root==NULL){
         return;
     }
 
+    //only push leaf node
     if(root->left==NULL && root->right==NULL){
         ans.push_back(root->data);
         return;
     }
 
+    //recursively iterate left subtree
     TraversalLeaf(root->left,ans);
+
+    //recursively iterate right subtree
     TraversalLeaf(root->right,ans);
 }
 
 void TraversalRight(Node* root,vector<int> &ans){
+
+    //base case and rightmost leafnode not to be included
     if((root==NULL)||(root->left==NULL && root->right==NULL)){
         return;
     }
+
+    //first recursively iterate towards righmost node(except leaf node)
     if(root->right){
         TraversalRight(root->right,ans);
-    }else{
+    }
+    //only iterate if right subtree is not present
+    else{
         TraversalRight(root->left,ans);
     }
+
+    //push back in reverse order
     ans.push_back(root->data);
 }
 
 vector<int> boundaryTraversal(Node* root){
     vector<int> ans;
+
+    //base case
     if(root==NULL){
         return ans;
     }
+
+    //push back root node
     ans.push_back(root->data);
 
+    //traverse left part of tree
     TraversalLeft(root->left,ans);
+
+    //traverse left sub tree for left leaf node 
     TraversalLeaf(root->left,ans);
+
+    //traverse right sub tree for right leaf node
     TraversalLeaf(root->right,ans);
+
+    //traverse right part of tree
     TraversalRight(root->right,ans);
 
     return ans;
@@ -100,3 +131,5 @@ int main() {
 
     return 0;
 }
+
+//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
