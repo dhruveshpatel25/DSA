@@ -16,7 +16,7 @@ class Node{
     }
 };
 
-
+//building the tree
 Node* buildtree(Node *root){
     cout<<"Enter the data: "<<endl;
     int data;
@@ -26,18 +26,23 @@ Node* buildtree(Node *root){
         return NULL;
     }
 
+    //recursively calling left side of tree till it reaches NULL
     cout<<"Enter the data for inserting in left of "<<data<<endl;
     root->left=buildtree(root->left);
+
+    //recursively calling right of tree till it reaches NULL
     cout<<"Enter the data for inserting in right of "<<data<<endl;
     root->right=buildtree(root->right);
     return root;
 }
 
-
+//traversing the tree in reverse order
 void reverselevelOrderTraversal(Node *root){
     stack<Node*> stk;
     queue<Node*> que;
     que.push(root);
+
+    //separator-used to separate 2 levels in tree
     que.push(NULL);
 
     while(!que.empty()){
@@ -45,28 +50,33 @@ void reverselevelOrderTraversal(Node *root){
         que.pop();
         stk.push(temp);
 
+        //last level is complete
         if(temp==NULL){ 
-            cout<<endl;
+
+            //queue still has child nodes
             if(!que.empty()){
                 que.push(NULL);
             }
         }
         else
         { 
-            cout<<temp->data<<" ";
+            //pushing the left child
             if(temp->left){
                 que.push(temp->left);
             }
 
+            //pushing the right child
             if(temp->right){
                 que.push(temp->right);
             }
         }
     }
 
-    cout<<"Hi";
+    //iterating the stack till its empty
     while(!stk.empty()){
         Node* temp=stk.top();
+
+        //checking if the temp value is NULL or element
         if(temp==NULL){
             cout<<endl;
         }else{

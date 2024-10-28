@@ -46,11 +46,16 @@ bool isIdentical(Node* root1,Node* root2){
         return false;
     }
 
+    //recursilvely iterates left subtree
     bool left=isIdentical(root1->left,root2->left);
+
+    //recursilvely iterates right subtree
     bool right=isIdentical(root1->right,root2->right);
 
+    //checks if the data in the node are same or not
     bool val=root1->data==root2->data;
 
+    //checks if the data on both the tree are same or not
     if(left&&right&&val){
         return true;
     }else{
@@ -71,3 +76,5 @@ int main() {
     }
     return 0;
 }
+
+//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1

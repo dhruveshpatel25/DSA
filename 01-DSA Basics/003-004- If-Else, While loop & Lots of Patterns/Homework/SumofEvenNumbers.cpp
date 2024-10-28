@@ -7,6 +7,8 @@ int main(){
     int sum=0;
     int i=1;
     while(i<=num){
+        
+        //check if the number is even or not
         if(i%2==0){
             sum=sum+i;
         }

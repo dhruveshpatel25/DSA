@@ -42,47 +42,66 @@ int height(Node* root){
     return ans;
 }
 
-bool checkBalance(Node* root){
+/*bool checkBalance(Node* root){
     if(root==NULL){
         return true;
     }
 
+    //recursively iterates left subtree
     bool left = checkBalance(root->left);
+
+    //recursively iterates right subtree
     bool right = checkBalance(root->right);
+
+    //checks the balance of current node
     bool diff = height(root->left)-height(root->right)<=1;
 
+    //checks the condition whether the right,left & current node are balanced or not
     if(left && right && diff){
         return true;
     }else{
         return false;
     }
-}
+    return ans;
+}*/
 
-/*pair<bool,int> checkBalance(Node* root){
+pair<bool,int> checkBalance(Node* root){
     if(root==NULL){
         pair<bool,int> p=make_pair(true,0);
         return p;
     }
 
+    //recursively iterates left subtree
     pair<bool,int> left= checkBalance(root->left);
+
+    //recursively iterates right subtree
     pair<bool,int> right= checkBalance(root->right);
 
+    //contains the balanced condition of left subtree
     bool leftAns=left.first;
+
+    //contains the balanced condition of right subtree
     bool rightAns=right.first;
 
-    bool diff=abs(left.second-right.second)<=1;
+    //checks the balance of current node
+    bool difference=abs(left.second-right.second)<=1;
+
     pair<bool,int>ans;
+
+    //finds the maximum height of current node
     ans.second=max(left.second,right.second)+1;
 
-    if(leftAns&&rightAns&&diff){
+    //checks the condition whether the right,left & current node are balanced or not
+    if(leftAns&&rightAns&&difference){
         ans.first=true;
     }else{
         ans.first=false;
     } 
-}*/
+    return ans;
+}
 
 bool isBalanced(Node* root){
-    return checkBalance(root);
+    return checkBalance(root).first;
 }
 
 int main() {

@@ -16,22 +16,6 @@ class Node{
     }
 };
 
-//creation of binary tree
-Node* buildtree(Node *root){
-    cout<<"Enter the data: "<<endl;
-    int data;
-    cin>>data;
-    root=new Node(data);
-    if(data==-1){
-        return NULL;
-    }
-
-    cout<<"Enter the data for inserting in left of "<<data<<endl;
-    root->left=buildtree(root->left);
-    cout<<"Enter the data for inserting in right of "<<data<<endl;
-    root->right=buildtree(root->right);
-    return root;
-}
 
 void levelOrderTraversal(Node *root){
     queue<Node*> que;
@@ -62,7 +46,7 @@ void levelOrderTraversal(Node *root){
     }
 }
 
-void buildTreeFromLevelOrderTraversal(Node* root){
+void buildTreeFromLevelOrderTraversal(Node* &root){
     queue<Node*> que;
     cout<<"Enter the data for root: "<<endl;
     int data;
@@ -98,3 +82,4 @@ int main(){
     buildTreeFromLevelOrderTraversal(root);
     levelOrderTraversal(root);
 }
+//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1

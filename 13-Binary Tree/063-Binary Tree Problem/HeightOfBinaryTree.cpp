@@ -37,8 +37,14 @@ int height(Node* root){
     if(root==NULL){
         return 0;
     }
+
+    //recursivley iterates to left till it finds NULL
     int left = height(root->left);
+
+    //recursivley iterates to right till it finds NULL
     int right = height(root->right);
+
+    //calculates the maximum between two nodes
     int ans= max(left,right)+1;
     return ans;
 }
@@ -50,3 +56,4 @@ int main() {
     return 0;
 }
 
+//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1

@@ -42,13 +42,13 @@ pair<int,int> Diameter(Node* root){
     pair<int,int> left = Diameter(root->left);
     pair<int,int> right = Diameter(root->right);
 
-    int op1=left.first; //left ka diameter
-    int op2=right.first;
-    int op3=left.second+right.second+1;
+    int op1=left.first; //diameter of left subtree
+    int op2=right.first; //diameter of right subtree
+    int op3=left.second+right.second+1; //diameter passing through current node    
 
     pair<int,int> ans;
-    ans.first= max(op1,max(op2,op3));
-    ans.second=max(left.first,right.second)+1;
+    ans.first= max(op1,max(op2,op3)); //diameter of current node
+    ans.second=max(left.first,right.second)+1; //height of the current node
     return ans;
 }
 
@@ -65,3 +65,4 @@ int main() {
     return 0;
 }
 
+//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
