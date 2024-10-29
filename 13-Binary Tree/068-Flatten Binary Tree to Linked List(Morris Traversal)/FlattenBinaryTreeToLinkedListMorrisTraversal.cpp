@@ -46,18 +46,34 @@ void Inorder(Node* root){  //Left Node->Root Node->Right Node
 }
 
 void Flatten(Node* root){
+
+    //use current pointer on root node
     Node* curr = root;
     while(curr!=NULL){
+
+        //check if there is left child 
         if(curr->left){
+
+            //use predecessor pointer on left child
             Node* pred=curr->left;
             while(pred->right){
+
+                //iterate till predecessor->right is not NULL
                 pred=pred->right;
             }
+
+            //now point the rightmost node to current pointer's right
             pred->right=curr->right;
+
+            //now shift the current right to its left child
             curr->right=curr->left;
+
+            //now remove the left pointer
             curr->left=NULL;
         }
-        curr=curr->left;
+
+        //iterate using right pointer
+        curr=curr->right;
     }
 }
 
@@ -77,3 +93,5 @@ int main() {
 
     return 0;
 }
+
+//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1

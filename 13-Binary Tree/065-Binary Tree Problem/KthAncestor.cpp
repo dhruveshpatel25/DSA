@@ -36,26 +36,45 @@ Node* buildtree(Node *root){
 }
 
 Node* solve(Node* root,int &k,int node){
+
+    //base case
     if(root==NULL){
         return NULL;
     }
+
+    //when node found return the node above
     if(root->data==node){
         return root;
     }
+
+    //recursivley iterate left subtree
     Node* leftAns=solve(root->left,k,node); 
+
+    //recursivley iterate right subtree
     Node* rightAns=solve(root->right,k,node);
+
+    //check condition
     if(leftAns!=NULL && rightAns==NULL){
         k--;
+
+        //loop till it reaches 0 and then return the root
         if(k<=0){
+
+            //locking the answer as k wont reach 0
             k=INT_MAX;
             return root;
         }
         return leftAns;
     }
 
+    //check condition
     if(leftAns==NULL && rightAns!=NULL){
         k--;
+
+        //loop till it reaches 0 and then return the root
         if(k<=0){
+
+            //locking the answer as k wont reach 0
             k=INT_MAX;
             return root;
         }
@@ -67,6 +86,8 @@ Node* solve(Node* root,int &k,int node){
 
 int kAncestor(Node* root,int k,int node){
     Node* ans=solve(root,k,node);
+
+    //if answer is root node then return -1 as we cannot finds its ancestor
     if(ans==NULL || ans->data==node){
         return false;
     }else{

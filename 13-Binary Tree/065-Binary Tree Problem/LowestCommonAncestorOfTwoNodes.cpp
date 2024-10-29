@@ -36,26 +36,39 @@ Node* buildtree(Node *root){
 }
 
 Node* lowestCommonAncestor(Node* root,int n1,int n2){
+
+    //base case
     if(root==NULL){
         return NULL;
     }
 
+    //checking if current node is n1 or n2
     if(root->data==n1 || root->data==n2){
         return root;
     }
 
+    //recursively iterate left subtree
     Node* leftAns=lowestCommonAncestor(root->left,n1,n2);
+
+    //recursively iterate right subtree
     Node* rightAns=lowestCommonAncestor(root->right,n1,n2);
 
+    //if both the side has n1 and n2 then return the root as lowest common ancestor
     if(leftAns!=NULL && rightAns!=NULL){
         return root;
     }
+
+    //if only the right subtree has n1 or n2 then return the value above
     else if(leftAns==NULL && rightAns!=NULL){
         return rightAns;
     }
+
+    //if only the left subtree has n1 or n2 then return the value above
     else if(leftAns!=NULL && rightAns==NULL){
         return leftAns;
     }
+
+    //if both side dont have n1 or n2 then return NULL
     else{
         return NULL;
     }

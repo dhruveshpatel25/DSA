@@ -36,26 +36,44 @@ Node* buildtree(Node *root){
 }
 
 void solve(Node* root,int len,int& Maxlen,int sum,int& Maxsum){
+
+    //crossed the leaf node
     if(root==NULL){
+
+        //if the length of particular node is greater than the previous maximum
         if(len>Maxlen){
             Maxlen=len;
             Maxsum=sum;
         }
+
+        //if it is same then calculate the maximum sum
         else if(len==Maxlen){
             Maxsum=max(sum,Maxsum);
         }
         return;
     }
+
+    //calculate the sum for each node during traversal
     sum=sum+root->data;
+
+    //recursively iterating left subtree by increasing length by 1
     solve(root->left,len+1,Maxlen,sum,Maxsum);
+
+    //recursively iterating right subtree by increasing length by 1
     solve(root->right,len+1,Maxlen,sum,Maxsum);
 }
 
 int sumOfLongRootToLeafPath(Node* root){
+    //calculating the length of traversal
     int len=0;
+
+    //storing the maximum length
     int Maxlen=0;
 
+    //calulating sum of traversal
     int sum=0;
+
+    //storing the maximum sum
     int Maxsum=INT_MIN;
     solve(root,len,Maxlen,sum,Maxsum);
     return Maxsum;

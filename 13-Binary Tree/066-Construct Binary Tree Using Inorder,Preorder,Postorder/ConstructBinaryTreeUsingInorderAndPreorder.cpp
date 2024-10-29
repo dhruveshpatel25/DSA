@@ -44,30 +44,50 @@ void Postorder(Node* root){  //Left Node->Right Node->Root Node
     cout<<root->data<<" ";
 }
 
-int findPosition(int inorder[],int element,int size){
+//maps node and index
+void createMapping(int inorder[],map<int,int> &nodeToIndex,int size){
     for(int i=0;i<size;i++){
-        if(inorder[i]==element){
-            return i;
-        }
+        nodeToIndex[inorder[i]]=i;
     }
-    return -1;
 }
 
-Node* solve(int inorder[],int preorder[],int &preorderindex,int inorderstart, int inorderend, int size){
+Node* solve(int inorder[],int preorder[],int &preorderindex,int inorderstart, int inorderend, int size,map<int,int> &nodeToIndex){
+
+    //when preorder pointer reaches end of preorder array or indorder start reaches end of array
     if(preorderindex>=size || inorderstart>inorderend){
         return NULL;
     }
+
+    //making the preorder index as root node
     int element=preorder[preorderindex++];
+
+    //node format
     Node* root=new Node(element);
-    int position=findPosition(inorder,element,size);
-    root->left=solve(inorder,preorder,preorderindex,inorderstart,position-1,size);
-    root->right=solve(inorder,preorder,preorderindex,position+1,inorderend,size);
+
+    //find position of the node in inorder array
+    int position=nodeToIndex[element];
+
+    //recursively iterate the left side to make left subtree
+    root->left=solve(inorder,preorder,preorderindex,inorderstart,position-1,size,nodeToIndex);
+
+    //recursively iterate the right side to make right subtree
+    root->right=solve(inorder,preorder,preorderindex,position+1,inorderend,size,nodeToIndex);
     return root;
 }
 
 Node* constructTree(int inorder[],int preorder[],int size){
+
+    //pointer for preorder
     int preorderindex=0;
-    Node* ans=solve(inorder,preorder,preorderindex,0,size-1,size);
+
+    //create map for mapping between node and index
+    map<int,int> nodeToIndex;
+    createMapping(inorder,nodeToIndex,size);
+
+    //inorder array,preorder array,pointer of preorder, start index of inorder, end index of inorder , size of binary tree
+    Node* ans=solve(inorder,preorder,preorderindex,0,size-1,size,nodeToIndex); 
+
+    return ans;
 }
 
 int main() {
@@ -96,3 +116,8 @@ int main() {
 
     return 0;
 }
+
+//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
+//Inorder- Left Root Right
+//Preorder- Root Left Right
+//Postorder- Left Right Root

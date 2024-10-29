@@ -35,43 +35,38 @@ Node* buildtree(Node *root){
     return root;
 }
 
-void solve(Node* root,int k,int &count,vector<int> path){
-    if(root==NULL){
-        return;
-    }
-    path.push_back(root->data);
-    solve(root->left,k,count,path);
-    solve(root->right,k,count,path);
+void morrisTraversal(Node* root){
+    Node* curr=root;
+    
+    while(curr!=NULL){
 
-    int size=path.size();
-    int sum=0;
-    for(int i=size-1;i>=0;i--){
-        sum=sum+path[i];
-        if(sum==k){
-            count++;
+        if(curr->left==NULL){
+            cout<<curr->data<<" ";
+            curr=curr->right;
+        }else{
+            Node* pred=curr->left;
+            while(pred->right!=NULL && pred->right!=curr){
+                pred=pred->right;
+            }
+            if(pred->right==NULL){
+                pred->right=curr;
+                curr=curr->left;
+            }else{
+                pred->right=NULL;
+                cout<<curr->data<<" ";
+                curr=curr->right;
+            }
         }
     }
-    path.pop_back();
-}
-
-int kSumPaths(Node* root,int k){
-    vector<int> path;
-    int count=0;
-    solve(root,k,count,path);
-    return count;
 }
 
 int main() {
     Node* root = NULL;
     root = buildtree(root);
 
-    int k;
-    cout << "Enter the value of k: ";
-    cin >> k;
-
-    int result = kSumPaths(root, k);
-    cout << "Number of paths with sum " << k << ": " << result << endl;
+    cout << "Inorder Traversal using Morris Traversal: ";
+    morrisTraversal(root);
+    cout << endl;
 
     return 0;
 }
-//1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
