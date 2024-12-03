@@ -1,3 +1,10 @@
+/*
+*
+**
+***
+****
+*****
+*/
 #include<iostream>
 using namespace std;
 
@@ -8,8 +15,8 @@ int main(){
     int i=0;
     while(i+1<=n){
         int j=0;
-        while(j+1<=n){
-            cout<<""<<n-j;
+        while(j+1<=i+1){
+            cout<<"*";
             j++;
         }
         cout<<endl;

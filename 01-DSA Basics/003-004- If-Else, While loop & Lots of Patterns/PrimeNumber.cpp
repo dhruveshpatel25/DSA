@@ -7,6 +7,8 @@ int main(){
     cin>>num;
     int i=2;
     while(i<num){
+
+        //if the remainder is 1 then not prime
         if(num%i==0){
             cout<<"The number is not Prime"<<endl;
         }

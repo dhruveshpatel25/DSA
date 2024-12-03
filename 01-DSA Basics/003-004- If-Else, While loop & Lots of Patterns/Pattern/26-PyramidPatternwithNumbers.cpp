@@ -1,3 +1,10 @@
+/*
+      1
+     121
+    12321
+   1234321
+  123454321
+*/
 #include<iostream>
 using namespace std;
 
@@ -9,18 +16,16 @@ int main(){
     while(i+1<=n){
         int j=0;
         int space=0;
-         while(j<n-i){
+         while(space<n-i+1){
+            cout<<" ";
+            space++;
+        }
+        while(j<=i){
             cout<<""<<j+1;
             j++;
         }
-        j=1;
-        while(j<=i*2){
-            cout<<"*";
-            j++;
-        }
-        j=n-i;
-        while(j>0){
-            cout<<""<<j;
+        while(j>1){
+            cout<<""<<j-1;
             j=j-1;
         }
         cout<<endl;

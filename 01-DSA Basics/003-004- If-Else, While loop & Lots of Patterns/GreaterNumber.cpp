@@ -7,6 +7,8 @@ int main(){
     cin>>num1;
     cout<<"Enter second number: "<<endl;
     cin>>num2;
+
+    //check which value is greater
     if(num1>num2){
         cout<<"First Number is greater"<<endl;
     }

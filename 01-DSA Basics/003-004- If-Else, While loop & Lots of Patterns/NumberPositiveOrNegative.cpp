@@ -6,6 +6,8 @@ int main(){
 
     cout<<"Enter the value"<<endl;
     cin>>number;
+
+    //check the number
     if(number>0){
         cout<<"The value is Positive"<<endl;
     }

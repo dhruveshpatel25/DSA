@@ -1,3 +1,10 @@
+/*
+*****
+ ****
+  ***
+   **
+    *
+*/
 #include<iostream>
 using namespace std;
 
@@ -6,12 +13,15 @@ int main(){
     cout<<"Enter the no.of times "<<endl;
     cin>>n;
     int i=0;
-    int count=1;
     while(i+1<=n){
         int j=0;
-        while(j+1<=n){
-            cout<<" "<<n*n-count+1;
-            count++;
+        int space=0;
+         while(space<i+1){
+            cout<<" ";
+            space++;
+        }
+        while(j+1<=n-i){
+            cout<<"*";
             j++;
         }
         cout<<endl;

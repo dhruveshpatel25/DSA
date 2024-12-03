@@ -1,3 +1,10 @@
+/*
+ABCDE
+BCDEF
+CDEFG
+DEFGH
+EFGHI
+*/
 #include<iostream>
 using namespace std;
 
@@ -10,7 +17,7 @@ int main(){
     while(i+1<=n){
         int j=0;
         count=i;
-        while(j+1<=i+1){
+        while(j+1<=n){
             cout<<(char)(65+count);
             count++;
             j++;
