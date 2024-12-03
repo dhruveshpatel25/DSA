@@ -21,14 +21,19 @@ class Node{
 void levelOrderTraversal(Node *root){
     queue<Node*> que;
     que.push(root);
+
+    //separator-used to separate 2 levels in tree
     que.push(NULL);
 
     while(!que.empty()){
         Node* temp=que.front();
         que.pop();
 
-        if(temp==NULL){ //last level is complete
+        //last level is complete
+        if(temp==NULL){ 
             cout<<endl;
+
+            //queue still has child nodes
             if(!que.empty()){
                 que.push(NULL);
             }
@@ -36,10 +41,13 @@ void levelOrderTraversal(Node *root){
         else
         { 
             cout<<temp->data<<" ";
+
+            //pushing the left child
             if(temp->left){
                 que.push(temp->left);
             }
 
+            //pushing the right child
             if(temp->right){
                 que.push(temp->right);
             }
@@ -47,7 +55,8 @@ void levelOrderTraversal(Node *root){
     }
 }
 
-void Inorder(Node* root){  //Left Node->Root Node->Right Node
+//Left Node->Root Node->Right Node
+void Inorder(Node* root){  
     if(root==NULL){
         return;
     }
@@ -57,7 +66,8 @@ void Inorder(Node* root){  //Left Node->Root Node->Right Node
     Inorder(root->right);
 }
 
-void Preorder(Node* root){  //Root Node->Left Node->Right Node
+//Root Node->Left Node->Right Node
+void Preorder(Node* root){  
     if(root==NULL){
         return;
     }
@@ -67,7 +77,8 @@ void Preorder(Node* root){  //Root Node->Left Node->Right Node
     Preorder(root->right);
 }
 
-void Postorder(Node* root){  //Left Node->Right Node->Root Node
+//Left Node->Right Node->Root Node
+void Postorder(Node* root){  
     if(root==NULL){
         return;
     }
@@ -82,9 +93,10 @@ Node* insertToBST(Node* root,int data){
         return root;
     }
 
+    //iterate to right if the data is greater than the root data
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{
+    }else{ //iterate to left if the data is smaller than the root data
         root->left = insertToBST(root->left,data);
     }
     return root;
@@ -92,6 +104,8 @@ Node* insertToBST(Node* root,int data){
 
 int minival(Node* root){
     Node* temp=root;
+
+    //check till the smallest value
     while(temp->left!=NULL){
         temp=temp->left;
     }
@@ -103,32 +117,43 @@ Node* deleteFromBST(Node* root,int data){
         return root;
     }
 
+    //if you find the data to be deleted
     if(root->data==data){
+
+        //if it does not have any child node
         if(root->left==NULL && root->right==NULL){
             delete root;
             return NULL;
         }
 
+        //if it has left child
         if(root->left!=NULL && root->right==NULL){
             Node* temp=root->left;
             delete root;
             return temp;
         }
+
+        //if it has right child
         if(root->left==NULL && root->right!=NULL){
             Node* temp=root->right;
             delete root;
             return temp;
         }
 
+        //if it has both the child
         if(root->left!=NULL && root->right!=NULL){
+
+            //find the minimum in the right subtree
             int mini=minival(root->right);
             root->data=mini;
             root->right=deleteFromBST(root->right,mini);
             return root;
         }
+
+    //if the value is smaller than the root
     }else if(root->data>data){
         root->left=deleteFromBST(root->left,data);
-    }else{
+    }else{ //if the value is greater than the root
         root->right=deleteFromBST(root->right,data);
     }
 

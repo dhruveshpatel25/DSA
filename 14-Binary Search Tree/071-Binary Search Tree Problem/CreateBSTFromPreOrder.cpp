@@ -1,3 +1,17 @@
+/*Preorder traversal of a BST
+You have been given an array/list 'PREORDER' representing the preorder traversal of a BST with 'N' nodes. All the elements in the given array have distinct values.
+
+Your task is to construct a binary search tree that matches the given preorder traversal.
+
+A binary search tree (BST) is a binary tree data structure that has the following properties:
+
+• The left subtree of a node contains only nodes with data less than the node’s data.
+• The right subtree of a node contains only nodes with data greater than the node’s data.
+• Both the left and right subtrees must also be binary search trees.
+Note:
+
+It is guaranteed that a BST can be always constructed from the given preorder traversal. Hence, the answer will always exist.
+https://www.naukri.com/code360/problems/preorder-traversal-to-bst_893111?leftPanelTab=0*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -21,14 +35,19 @@ class Node{
 void levelOrderTraversal(Node *root){
     queue<Node*> que;
     que.push(root);
+
+    //separator-used to separate 2 levels in tree
     que.push(NULL);
 
     while(!que.empty()){
         Node* temp=que.front();
         que.pop();
 
-        if(temp==NULL){ //last level is complete
+        //last level is complete
+        if(temp==NULL){
             cout<<endl;
+
+            //queue still has child nodes
             if(!que.empty()){
                 que.push(NULL);
             }
@@ -36,10 +55,13 @@ void levelOrderTraversal(Node *root){
         else
         { 
             cout<<temp->data<<" ";
+
+            //pushing the left child
             if(temp->left){
                 que.push(temp->left);
             }
 
+            //pushing the right child
             if(temp->right){
                 que.push(temp->right);
             }
@@ -53,9 +75,10 @@ Node* insertToBST(Node* root,int data){
         return root;
     }
 
+    //iterate to right if the data is greater than the root data
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{
+    }else{ //iterate to left if the data is smaller than the root data
         root->left = insertToBST(root->left,data);
     }
     return root;
@@ -72,14 +95,22 @@ void takeInput(Node* &root){
 }
 
 Node* solve(vector<int> &preorder,int mini,int maxi,int &i){
+
+    //if you are out of array
     if(i>=preorder.size()){
         return NULL;
     }
+
+    //if the number is infinity
     if(preorder[i]<mini || preorder[i]>maxi){
         return NULL;
     }
     Node* root=new Node(preorder[i++]);
+
+    //recursively iterate to left subtree ans the range is between mini and the previous data
     root->left = solve(preorder,mini,root->data,i);
+
+    //recursively iterate to right subtree and the range is between maxi and the previous data
     root->right = solve(preorder,root->data,maxi,i);
     return root;
 }
@@ -113,3 +144,4 @@ int main() {
     return 0;
 }
 
+// 10 8 21 7 27 5 4 3 -1

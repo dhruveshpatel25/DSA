@@ -21,14 +21,19 @@ class Node{
 void levelOrderTraversal(Node *root){
     queue<Node*> que;
     que.push(root);
+
+    //separator-used to separate 2 levels in tree
     que.push(NULL);
 
     while(!que.empty()){
         Node* temp=que.front();
         que.pop();
 
-        if(temp==NULL){ //last level is complete
+        //last level is complete
+        if(temp==NULL){ 
             cout<<endl;
+
+            //queue still has child nodes
             if(!que.empty()){
                 que.push(NULL);
             }
@@ -36,15 +41,49 @@ void levelOrderTraversal(Node *root){
         else
         { 
             cout<<temp->data<<" ";
+
+            //pushing the left child
             if(temp->left){
                 que.push(temp->left);
             }
 
+            //pushing the right child
             if(temp->right){
                 que.push(temp->right);
             }
         }
     }
+}
+
+int solve(Node* root,int &i,int k){
+    if(root==NULL){
+        return -1;
+    }
+
+    //check for largest value
+    int right=solve(root->right,i,k);
+
+    //if it exist return the value
+    if(right!=-1){
+        return right;
+    }
+
+    //increase the count
+    i++;
+
+    //check the count with k
+    if(i==k){
+        return root->data;
+    }
+
+    //if not right then left
+    return solve(root->left,i,k);
+}
+
+int kthLargest(Node* root,int i,int k){
+    i=0;
+    int ans=solve(root,i,k);
+    return ans;
 }
 
 Node* insertToBST(Node* root,int data){
@@ -53,9 +92,10 @@ Node* insertToBST(Node* root,int data){
         return root;
     }
 
+    //iterate to right if the data is greater than the root data
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{
+    }else{ //iterate to left if the data is smaller than the root data
         root->left = insertToBST(root->left,data);
     }
     return root;
@@ -71,49 +111,22 @@ void takeInput(Node* &root){
     }
 }
 
-pair<int,int> predecessorAndSuccessor(Node* root,int key){
-    Node* temp=root;
-    int pred=-1;
-    int succ=-1;
-    while(temp->data!=key){
-        if(temp->data>key){
-            pred=temp->data;
-            temp=temp->left;
-        }else{
-            succ=temp->data;
-            temp=temp->right;
-        }
-    }
-    Node* leftTree = temp->left;
-    while(leftTree!=NULL){
-        pred=leftTree->data;
-        leftTree=leftTree->right;
-    }
-
-    Node* rightTree=temp->right;
-    while(rightTree!=NULL){
-        succ=rightTree->data;
-        rightTree=rightTree->left;
-    }
-
-    pair<int,int> ans=make_pair(pred,succ);
-    return ans;
-}
-
 int main() {
     Node* root = NULL;
-
-    cout << "Enter nodes to insert into the BST: " << endl;
+    
+    cout << "Enter elements to insert into the BST: " << endl;
     takeInput(root);
 
     cout << "Level Order Traversal of the BST:" << endl;
     levelOrderTraversal(root);
 
-    int key;
-    cout<<"Enter the key: ";
-    cin>>key;
-    pair<int, int> predAndSucc = predecessorAndSuccessor(root, key);
-    cout << "Predecessor and Successor of " << key << ": ";
-    cout << predAndSucc.first << " " << predAndSucc.second << endl;
+    int k;
+    cout << "Enter the value of k to find the kth largest element: ";
+    cin >> k;
+
+    int kthLargestElement = kthLargest(root, 0, k);
+    cout << "The " << k << "th largest element in the BST is: " << kthLargestElement << endl;
+
     return 0;
 }
+// 10 8 21 7 27 5 4 3 -1

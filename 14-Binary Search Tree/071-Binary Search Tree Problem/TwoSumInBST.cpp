@@ -1,3 +1,9 @@
+/*Two Sum IV - Input is a BST
+
+You have been given a Binary Search Tree and a target value. You need to find out whether there exists a pair of node values in the BST, such that their sum is equal to the target value.
+
+A binary search tree (BST), also called an ordered or sorted binary tree, is a rooted binary tree whose internal nodes each store a value greater than all the values keys in the node's left subtree and less than those in its right subtree.
+https://www.naukri.com/code360/problems/two-sum-in-a-bst_1062631?leftPanelTab=0*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -21,14 +27,19 @@ class Node{
 void levelOrderTraversal(Node *root){
     queue<Node*> que;
     que.push(root);
+
+    //separator-used to separate 2 levels in tree
     que.push(NULL);
 
     while(!que.empty()){
         Node* temp=que.front();
         que.pop();
 
-        if(temp==NULL){ //last level is complete
+        //last level is complete
+        if(temp==NULL){ 
             cout<<endl;
+
+            //queue still has child nodes
             if(!que.empty()){
                 que.push(NULL);
             }
@@ -36,10 +47,13 @@ void levelOrderTraversal(Node *root){
         else
         { 
             cout<<temp->data<<" ";
+
+            //pushing the left child
             if(temp->left){
                 que.push(temp->left);
             }
 
+            //pushing the right child
             if(temp->right){
                 que.push(temp->right);
             }
@@ -53,9 +67,10 @@ Node* insertToBST(Node* root,int data){
         return root;
     }
 
+    //iterate to right if the data is greater than the root data
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{
+    }else{ //iterate to left if the data is smaller than the root data
         root->left = insertToBST(root->left,data);
     }
     return root;
@@ -70,8 +85,8 @@ void takeInput(Node* &root){
         cin>>data;
     }
 }
-
-void Inorder(Node* root,vector<int> &inorderval){  //Left Node->Root Node->Right Node
+//Left Node->Root Node->Right Node
+void Inorder(Node* root,vector<int> &inorderval){ 
     if(root==NULL){
         return;
     }
@@ -83,17 +98,23 @@ void Inorder(Node* root,vector<int> &inorderval){  //Left Node->Root Node->Right
 
 bool twoSumInBST(Node* root,int target){
     vector<int> inorderval;
+
+    //convert BST to inorder traversal
     Inorder(root,inorderval);
     int i=0;
     int j=inorderval.size()-1;
 
     while(i<j){
         int sum=inorderval[i]+inorderval[j];
+
+        //if sum = target
         if(sum==target){
             return true;
+
+        //if sum is greater than target
         }else if(sum>target){
             j--;
-        }else{
+        }else{ //if sum is smaller than target
             i++;
         }
     }
@@ -120,3 +141,4 @@ int main() {
 
     return 0;
 }
+// 10 8 21 7 27 5 4 3 -1

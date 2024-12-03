@@ -44,6 +44,8 @@ void takeInput(Node* &root){
 
 Node* mini(Node* root){
     Node* temp=root;
+
+    //iterate till you find the minimum value
     while(temp->left!=NULL){
         temp=temp->left;
     }
@@ -52,6 +54,8 @@ Node* mini(Node* root){
 
 Node *maxi(Node* root){
     Node* temp=root;
+
+    //iterate till you find the maximum value
     while(temp->right!=NULL){
         temp=temp->right;
     }

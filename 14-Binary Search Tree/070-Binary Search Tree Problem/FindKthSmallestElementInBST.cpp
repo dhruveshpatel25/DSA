@@ -21,14 +21,19 @@ class Node{
 void levelOrderTraversal(Node *root){
     queue<Node*> que;
     que.push(root);
+
+    //separator-used to separate 2 levels in tree
     que.push(NULL);
 
     while(!que.empty()){
         Node* temp=que.front();
         que.pop();
 
-        if(temp==NULL){ //last level is complete
+        //last level is complete
+        if(temp==NULL){
             cout<<endl;
+
+            //queue still has child nodes
             if(!que.empty()){
                 que.push(NULL);
             }
@@ -36,10 +41,13 @@ void levelOrderTraversal(Node *root){
         else
         { 
             cout<<temp->data<<" ";
+
+            //pushing the left child
             if(temp->left){
                 que.push(temp->left);
             }
 
+            //pushing the right child
             if(temp->right){
                 que.push(temp->right);
             }
@@ -52,14 +60,23 @@ int solve(Node* root,int &i,int k){
         return -1;
     }
 
+    //check for smallest value
     int left=solve(root->left,i,k);
+
+    //if it exist return the value
     if(left!=-1){
         return left;
     }
+
+    //increase the count
     i++;
+
+    //check the count with k
     if(i==k){
         return root->data;
     }
+
+    //if not left then right
     return solve(root->right,i,k);
 }
 
@@ -75,9 +92,10 @@ Node* insertToBST(Node* root,int data){
         return root;
     }
 
+    //iterate to right if the data is greater than the root data
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{
+    }else{ //iterate to left if the data is smaller than the root data
         root->left = insertToBST(root->left,data);
     }
     return root;
@@ -111,3 +129,4 @@ int main() {
 
     return 0;
 }
+// 10 8 21 7 27 5 4 3 -1

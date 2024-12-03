@@ -40,18 +40,28 @@ void morrisTraversal(Node* root){
     
     while(curr!=NULL){
 
+        //if there exist no left subtree below current root node
         if(curr->left==NULL){
             cout<<curr->data<<" ";
+
+            //move to right subtree to find greater value than the current root
             curr=curr->right;
-        }else{
+
+        }else{ //if the current root node has a left subtree
             Node* pred=curr->left;
+
+            //move to right subtree of predecessor node or stop if the thread exit
             while(pred->right!=NULL && pred->right!=curr){
                 pred=pred->right;
             }
+            //if thread does not exist then establish a thread between the predecessor and current
             if(pred->right==NULL){
                 pred->right=curr;
+
+                //move to the left subtree of current node 
                 curr=curr->left;
-            }else{
+                
+            }else{ //if thread exist remove the thread
                 pred->right=NULL;
                 cout<<curr->data<<" ";
                 curr=curr->right;

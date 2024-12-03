@@ -38,14 +38,19 @@ Node* buildtree(Node *root){
 void levelOrderTraversal(Node *root){
     queue<Node*> que;
     que.push(root);
+
+    //separator-used to separate 2 levels in tree
     que.push(NULL);
 
     while(!que.empty()){
         Node* temp=que.front();
         que.pop();
 
-        if(temp==NULL){ //last level is complete
+        //last level is complete
+        if(temp==NULL){
             cout<<endl;
+
+            //queue still has child nodes
             if(!que.empty()){
                 que.push(NULL);
             }
@@ -53,10 +58,13 @@ void levelOrderTraversal(Node *root){
         else
         { 
             cout<<temp->data<<" ";
+
+            //pushing the left child
             if(temp->left){
                 que.push(temp->left);
             }
 
+            //pushing the right child
             if(temp->right){
                 que.push(temp->right);
             }
@@ -70,8 +78,14 @@ bool isValidate(Node* root,int mini,int maxi){
     }
 
     if(root->data>=mini && root->data<=maxi){
+
+        //recursivly check for left subtree
         bool left=isValidate(root->left,mini,root->data);
+
+        //recursivly check for right subtree
         bool right=isValidate(root->right,root->data,maxi);
+
+        //if both are true
         return left && right;
     }
     else{
@@ -100,3 +114,4 @@ int main() {
 
     return 0;
 }
+// 10 8 21 7 27 5 4 3 -1

@@ -24,9 +24,10 @@ Node* insertToBST(Node* root,int data){
         return root;
     }
 
+    //if data is greater then the root 
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{
+    }else{ //if data is smaller then the root
         root->left = insertToBST(root->left,data);
     }
     return root;
@@ -51,9 +52,10 @@ bool searchInBSTUsingRecursion(Node *root,int data){
         return true;
     }
 
+    //recursively travel left
     if(root->data>data){
         searchInBSTUsingRecursion(root->left,data);
-    }else{
+    }else{ //recursively travel right
         searchInBSTUsingRecursion(root->right,data);
     }
 }
@@ -67,9 +69,10 @@ bool searchInBSTUsingIteration(Node* root,int data){
         if(temp->data==data){
             return true;
         }
+        //iterativly travel left
         if(temp->data>data){
             temp=temp->left;
-        }else{
+        }else{ //iterativly travel right
             temp=temp->right;
         }
     }

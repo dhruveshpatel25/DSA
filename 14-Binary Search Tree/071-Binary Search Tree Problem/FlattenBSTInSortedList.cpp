@@ -1,3 +1,9 @@
+/*Flatten BST To A Sorted List
+Problem statement
+You have been given a Binary Search Tree (BST). Your task is to flatten the given BST to a sorted list. More formally, you have to make a right-skewed BST from the given BST, i.e., the left child of all the nodes must be NULL, and the value at the right child must be greater than the current node.
+
+A binary search tree (BST), also called an ordered or sorted binary tree, is a rooted binary tree whose internal nodes each store a value greater than all the values in the node's left subtree and less than those in its right subtree.
+https://www.naukri.com/code360/problems/flatten-bst-to-a-sorted-list_1169459?leftPanelTab=0*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -21,14 +27,19 @@ class Node{
 void levelOrderTraversal(Node *root){
     queue<Node*> que;
     que.push(root);
+
+    //separator-used to separate 2 levels in tree
     que.push(NULL);
 
     while(!que.empty()){
         Node* temp=que.front();
         que.pop();
 
-        if(temp==NULL){ //last level is complete
+        //last level is complete
+        if(temp==NULL){
             cout<<endl;
+
+            //queue still has child nodes
             if(!que.empty()){
                 que.push(NULL);
             }
@@ -36,10 +47,13 @@ void levelOrderTraversal(Node *root){
         else
         { 
             cout<<temp->data<<" ";
+
+            //pushing the left child
             if(temp->left){
                 que.push(temp->left);
             }
 
+            //pushing the right child
             if(temp->right){
                 que.push(temp->right);
             }
@@ -53,6 +67,7 @@ Node* insertToBST(Node* root,int data){
         return root;
     }
 
+    //iterate to right if the data is greater than the root data
     if(data>root->data){
         root->right = insertToBST(root->right,data);
     }else{
@@ -71,7 +86,8 @@ void takeInput(Node* &root){
     }
 }
 
-void Inorder(Node* root,vector<int> &inorderval){  //Left Node->Root Node->Right Node
+//Left Node->Root Node->Right Node
+void Inorder(Node* root,vector<int> &inorderval){  
     if(root==NULL){
         return;
     }
@@ -83,10 +99,15 @@ void Inorder(Node* root,vector<int> &inorderval){  //Left Node->Root Node->Right
 
 Node* flatten(Node* root){
     vector<int> inorderval;
+
+    //convert BST to inorder traversal
     Inorder(root,inorderval);
     int size=inorderval.size();
 
+    //create new root node
     Node* newRoot = new Node(inorderval[0]);
+
+    //current pointing new root
     Node* curr = newRoot;
     for(int i=1;i<size;i++){
         Node* temp=new Node(inorderval[i]);
@@ -95,6 +116,7 @@ Node* flatten(Node* root){
         curr=temp;
     }
 
+    //last node
     curr->left=NULL;
     curr->right=NULL;
     return newRoot;
@@ -120,3 +142,4 @@ int main() {
 
     return 0;
 }
+// 10 8 21 7 27 5 4 3 -1
