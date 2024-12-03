@@ -1,24 +1,16 @@
-#include <bits/stdc++.h> 
+/*Merge k sorted lists
+Given 'k' sorted linked lists, each list is sorted in increasing order. You need to merge all these lists into one single sorted list. You need to return the head of the final linked list.
+https://www.naukri.com/code360/problems/merge-k-sorted-lists_992772?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/#include <bits/stdc++.h> 
 using namespace std;
 
 class Node{
 public:
     int data;
     Node *next;
-    Node()
-    {
-        this->data = 0;
-        next = NULL;
-    }
     Node(int data)
     {
         this->data = data; 
         this->next = NULL;
-    }
-    Node(int data, Node* next)
-    {
-        this->data = data;
-        this->next = next;
     }
 };
 
@@ -30,13 +22,18 @@ class compare{
 };
 
 Node* mergeKSortedLL(vector<Node*> &kLL){
+
+    //priority queue in ascending order
     priority_queue<Node*,vector<Node*>, compare>pq;
     int k=kLL.size();
     for(int i=0;i<k;i++){
+
+        //pushing all the heads of the linked list if they are not NULL
         if(kLL[i]!=NULL){
             pq.push(kLL[i]);
         }
     }
+
 
     Node* head=NULL;
     Node* tail=NULL;
@@ -44,15 +41,17 @@ Node* mergeKSortedLL(vector<Node*> &kLL){
         Node* temp = pq.top();
         pq.pop();
 
-
+        //first element
         if(head==NULL){
             head=temp;
             tail=temp;
         }
-        else{
+        else{ //if not the first
             tail->next=temp;
             tail=temp;
         }
+
+        //push the next element of the original linked list
         if(tail->next!=NULL){
             pq.push(tail->next);
         }

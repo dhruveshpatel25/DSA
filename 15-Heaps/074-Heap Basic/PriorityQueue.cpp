@@ -3,6 +3,8 @@
 using namespace std;
 
 int main(){
+
+    //priority queue in descending order(larger to smaller)
     priority_queue<int> pq1;
     pq1.push(30);
     pq1.push(40);
@@ -15,6 +17,8 @@ int main(){
         pq1.pop(); 
     }
     cout<<endl;
+
+    //priority queue in ascending order(smaller to larger)
     priority_queue<int, vector<int>, greater<int>> pq;
     pq.push(30);
     pq.push(40);
