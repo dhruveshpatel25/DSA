@@ -11,10 +11,16 @@ int main(){
     int i = 0;
 
     while(n!=0){
+
+        //take the last digit
         int digit = n%10;
+
+        //if 1 found multiply by the 2th power
         if(digit == 1){
             ans=ans+(digit*pow(2,i));
         }
+
+        //remove the last digit
         n= n/10;
         i++;
     }

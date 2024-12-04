@@ -10,6 +10,8 @@ int main(){
     cin>>number2;
     cout<<"Enter the operator ";
     cin>>operation;
+
+    //switch to the operation
     switch ( operation ) {
         case '+': cout<<(number1+number2)<<endl;
                   break;

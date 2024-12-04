@@ -6,6 +6,8 @@ int main(){
         cout<<"HI"<<endl;
         cout<<"Hello"<<endl;
         continue;
+
+        //skip this iteration and print other things
         cout<<"Hey"<<endl;
     }
 }

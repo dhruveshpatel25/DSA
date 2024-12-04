@@ -6,7 +6,11 @@ int Fibonacci(int n){
     int b=1;
     int c;
     for(int i=2; i<n;i++){
+
+        //add previous 2 number
         int c=a+b;
+
+        //move ahead in series
         a=b;
         b=c;
     }

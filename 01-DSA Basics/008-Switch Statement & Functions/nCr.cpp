@@ -10,6 +10,8 @@ int factorial(int n){
 }
 
 int nCr(int n,int r){
+
+    //formula=(n!/(n-r)!(r)!) 
     int numerator= factorial(n);
     int denominator= factorial(r)*factorial(n-r);
     return numerator/denominator;

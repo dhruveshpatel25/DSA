@@ -5,6 +5,8 @@ int main(){
     int number;
     cout<<"Enter the number to be checked ";
     cin>> number;
+
+    //flag for checking the whether it is prime or not
     bool isPrime=true;
     for(int factor = 2; factor<number; factor ++){
         if(number%factor==0){

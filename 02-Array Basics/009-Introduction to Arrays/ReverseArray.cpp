@@ -5,6 +5,8 @@ int Reverse(int arr[], int size){
     int start=0;
     int end=size-1;
     while(start<=end){
+
+        //swap with the last number and then move
         swap(arr[start],arr[end]);
         start++;
         end--;

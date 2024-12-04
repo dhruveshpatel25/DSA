@@ -3,6 +3,8 @@ using namespace std;
 
 bool Search(int arr[], int size, int key){
     for(int i=0; i<size; i++ ){
+
+        //iterate till you get the key value
         if(arr[i]==key){
             return 1;
         }

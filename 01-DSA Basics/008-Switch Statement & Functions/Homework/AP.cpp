@@ -2,6 +2,8 @@
 using namespace std;
 
 int AP(int n){
+
+    //AP formula
     int ap= 3*n+7;
     return ap;
 }

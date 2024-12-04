@@ -3,9 +3,13 @@
 using namespace std;
 
 int MAX(int num[],int n){
+
+    //INT_MIN means the minimum integer value
     int max= INT_MIN;
     for(int i=0;i<n;i++){
         if(num[i]>max){
+
+            //if you get maximum then save in max
             max=num[i];
         }
     }
@@ -13,8 +17,12 @@ int MAX(int num[],int n){
 }
 
 int MIN(int num[],int n){
+
+    //INT_MAX means the maximum integer value
     int min=INT_MAX;
     for(int i=0;i<n;i++){
+        
+        //if you get minimum then save in min
         if(num[i]<min){
             min=num[i];
         }

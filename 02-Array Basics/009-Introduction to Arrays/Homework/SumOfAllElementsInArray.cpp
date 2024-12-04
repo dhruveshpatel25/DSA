@@ -3,6 +3,8 @@ using namespace std;
 
 int Addition(int num[], int n){
     int sum=0;
+
+    //loop to add the number to get the sum
     for(int i=0; i<n; i++){
         sum= sum+num[i];
     }

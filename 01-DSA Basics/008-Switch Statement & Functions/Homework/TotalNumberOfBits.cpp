@@ -5,9 +5,12 @@ int NumberOfSetBitsA(int n){
     int count=0;
     while(n!=0){
 
+        //check total no.of 1 in number
         if (n&1){
             count++;
         }
+
+        //right shift 
         n=n>>1;
     }
     return count;
@@ -16,9 +19,13 @@ int NumberOfSetBitsA(int n){
 int NumberOfSetBitsB(int n){
     int count=0;
     while(n!=0){
+
+        //check total no.of 1 in number
         if (n&1){
             count++;
         }
+
+        //right shift 
         n=n>>1;
     }
     return count;
