@@ -14,15 +14,27 @@ https://www.naukri.com/code360/problems/topological-sort_982938?topList=love-bab
 using namespace std;
 
 vector<int> topologicalSort(vector<vector<int>>& edges,int vertex,int edge){
+
+    //int(node) list(nodes connected to it)
     unordered_map<int,list<int>> adjList;
+
+    //iterate for all node
     for(int i=0;i<edge;i++){
+
+        //retrieving from the data given
+        //node1
         int u = edges[i][0];
+
+        //node2
         int v = edges[i][1];
 
+        //node1->node2
         adjList[u].push_back(v);
     }
 
+    //to calculate indegrees of each node
     vector<int> indegrees(vertex);
+    
     //getting the value of indegrees
     for(auto i:adjList){
         for(auto j:i.second){
