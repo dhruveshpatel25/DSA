@@ -65,7 +65,7 @@ class Graph{
             int top=stk.top();
             stk.pop();
 
-            //if the distance is not infinity(meaning it is used to the node which is not needed)
+            //if the distance is not infinity(meaning it is used, to the node which is not needed)
             if(dist[top]!=INT_MAX){
 
                 //all the next node
