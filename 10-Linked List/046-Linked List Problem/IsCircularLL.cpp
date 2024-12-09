@@ -21,14 +21,31 @@ class Node{
 };
 
 void InsertAtTail(Node* &head, Node* &tail, int data){
+
+    //first node
     if(tail==NULL){
+
+        //create a new node
         Node* temp=new Node(data);
+
+        //point the tail at the new node
         tail=temp;
+
+        //make it circular
         temp->next=temp;
-    }else{
+    }//not the first node
+    else{
+
+        //create a new node
         Node* temp=new Node(data);
+
+        //add the new node at last
         tail->next=temp;
+
+        //make the new node->next as NULL
         temp->next=head;
+
+        //make the tail pointer at the new node
         tail=temp;
     }
 }

@@ -1,8 +1,3 @@
-/*Detect and Remove Loop
-Given a singly linked list, you have to detect the loop and remove the loop from the linked list, if present. You have to make changes in the given linked list itself and return the updated linked list.
-
-Expected Complexity: Try doing it in O(n) time complexity and O(1) space complexity. Here, n is the number of nodes in the linked list.
-https://www.naukri.com/code360/problems/interview-shuriken-42-detect-and-remove-loop_241049?leftPanelTab=0%3Fsource%3Dyoutube&campaign=YouTube_codestudio_lovebabbar28thjan&utm_source=youtube&utm_medium=affiliate&utm_campaign=YouTube_codestudio_lovebabbar28thjan*/
 #include<iostream>
 using namespace std;
 class Node{
@@ -66,11 +61,27 @@ void InsertAtTail(Node* &head, Node* &tail, int data){
     }
 }
 
-bool DetectCycle(Node* head){
+void print(Node* &head){
+
+    //start from head node
+    Node* temp= head;
+    while(temp->next!=head){
+        cout<<temp->data<<" ";
+
+        //go to next node
+        temp=temp->next;
+    }
+
+    //last node
+    cout<<temp->data;
+    cout<<endl;
+}
+
+Node* DetectCycle(Node* head){
 
     //if there in no LL
     if(head==NULL){
-        return false;
+        return NULL;
     }
 
     //fast pointer
@@ -89,49 +100,64 @@ bool DetectCycle(Node* head){
 
         //if fast pointer reaches NULL meaning there is no cycle
         if(fast==NULL){
-            return false;
+            return NULL;
         }
 
         //when slow reaches fast at same node means there is cycle
         if(slow==fast){
-            return true;
+            return fast;
         }
     }
 }
-void print(Node* &head){
 
-    //start from head node
-    Node* temp= head;
-    while(temp->next!=head){
-        cout<<temp->data<<" ";
+Node* getStarting(Node* head){
 
-        //go to next node
-        temp=temp->next;
+    //if there in no LL
+    if(head==NULL){
+        return NULL;
     }
 
-    //last node
-    cout<<temp->data;
-    cout<<endl;
+    //fast node from the function
+    Node* intersection=DetectCycle(head);
+
+    //placing the slow at head node
+    Node* slow=head;
+
+    //till slow and intersection meets
+    while(slow!=intersection){
+
+        //iterate the slow pointer
+        slow=slow->next;
+
+        //iterate the fast pointer
+        intersection=intersection->next;
+    }
+
+    return intersection;
 }
 
 int main() {
-    Node* head = NULL;  // Head of the linked list
-    Node* tail = NULL;  // Tail of the linked list
+    Node* head = NULL;  // Initialize the head pointer
+    Node* tail = NULL;  // Initialize the tail pointer
 
-    // Insert some nodes
-    InsertAtTail(head, tail, 10);
-    head = tail;  // Initialize head after the first insertion
-    InsertAtTail(head, tail, 20);
-    InsertAtTail(head, tail, 30);
-    InsertAtTail(head, tail, 40);
+    // Insert nodes into the linked list
+    InsertAtTail(head, tail, 1);
+    head = tail;  // Set head after the first insertion
+    InsertAtTail(head, tail, 2);
+    InsertAtTail(head, tail, 3);
+    InsertAtTail(head, tail, 4);
 
-    // Print the linked list (it should loop back to head)
-    cout << "Initial Circular Linked List:" << endl;
-    print(head);
+    // Intentionally create a loop for testing
+    tail->next = head->next; // Point the last node to the second node to create a cycle
 
-    // Check for a cycle
-    if (DetectCycle(head)) {
-        cout << "Cycle detected in the linked list." << endl;
+    // Detect cycle
+    Node* intersection = DetectCycle(head);
+    if (intersection != NULL) {
+        cout << "Cycle detected at node with value: " << intersection->data << endl;
+
+        // Find the starting point of the cycle
+        Node* cycleStart = getStarting(head);
+        cout << "The starting node of the cycle is: " << cycleStart->data << endl;
     } else {
         cout << "No cycle detected." << endl;
     }

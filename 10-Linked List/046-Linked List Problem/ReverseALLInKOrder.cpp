@@ -42,9 +42,17 @@ Node* ReverseKOrder(Node* &head,int k){
     return prev;
 }
 
+
+
 void InsertAtTail(Node* &tail,int d){
+
+    //create a new node
     Node* temp=new Node(d);
+
+    //add the new node at last
     tail->next=temp;
+
+    //make the tail pointer at the new node
     tail=temp;
 }
 
