@@ -4,12 +4,20 @@ using namespace std;
 
 bool Check(vector<int>& arr){
     int count=0;
+
+    //to check for rotation
     int n=arr.size()-1;
     for(int i=1;i<arr.size();i++){
+
+        //check the previous element with the current element(as it can be rotated so we need to use modulus)
         if(arr[(i-1)%n]>arr[i%n]){
+
+            //increase if only the previous element is greater
             count++;
         }
     }
+
+    //only one time the count will increase in rotated and sorted array when we reach the last element
     return count==1;
 }
 

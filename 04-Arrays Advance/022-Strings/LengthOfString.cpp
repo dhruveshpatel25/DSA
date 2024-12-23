@@ -4,6 +4,8 @@ using namespace std;
 
 int Length(vector<char>& arr){
     int count=0;
+
+    //iterate till the string end
     for(int i=0; arr[i]!='\0';i++){
         count++;
     }

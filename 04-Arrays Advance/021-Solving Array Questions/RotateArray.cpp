@@ -4,10 +4,16 @@ using namespace std;
 
 void Rotate(vector<int>& arr,int k){
     int n= arr.size();
+
+    //temporary array
     vector<int> temp(n);
     for(int i=0; i<n;i++){
+
+        //rotating at kth position
         temp[(i+k)%n]=arr[i];
     }
+
+    //copy the temporary array to the original array
     arr=temp;
 }
 int main(){

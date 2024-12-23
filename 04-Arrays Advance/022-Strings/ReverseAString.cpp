@@ -3,9 +3,17 @@
 using namespace std;
 
 void Reverse(vector<char>& arr){
+
+    //start pointer
     int start=0;
+
+    //end pointer
     int end=arr.size()-1;
+
+    //iterate till they cross each other
     while(start<=end){
+
+        //swap start and end pointer
         swap(arr[start++],arr[end--]);
     }
 }

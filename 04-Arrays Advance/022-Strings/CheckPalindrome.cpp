@@ -3,24 +3,38 @@
 using namespace std;
 
 char toLowercase(char ch){
+
+    //if elements are in lowercase
     if(ch>='a'&&ch<='z'){
         return ch;
-    }else{
+    }
+    
+    //if elements are in uppercase
+    else{
         char temp=ch-'A'+'a';
         return temp;
     }
 }
 
 bool Palindrome(vector<char>& arr){
+
+    //left pointer
     int start=0;
+
+    //right pointer
     int end=arr.size()-1;
+
+    //iterate till they cross each other
     while(start<=end){
-        if(toLowercase(arr[start++])==toLowercase(arr[end--])){
-            return true;
-        }else{
+
+        //check if both left and right elements are same or not
+        if(toLowercase(arr[start++])!=toLowercase(arr[end--])){
             return false;
         }
     }
+
+    //if the string is palindrome
+    return true;
     
 }
 

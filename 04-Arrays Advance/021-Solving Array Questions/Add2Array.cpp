@@ -11,34 +11,84 @@ void reverse(vector<int>& ans){
 }
 
 void Add(vector<int>& arr1,int size1, vector<int>& arr2, int size2, vector<int>& ans){
+
+    //pointer for the 1st array
     int i=size1-1;
+
+    //pointer for the 2nd array
     int j=size2-1;
+
+    //sum of the 2 number
     int sum=0;
+
+    //carry if the sum is greater than 10
     int carry=0;
+
+    //iterate for both the array
     while(i>=0 && j>=0){
+
+        //sum = 1st array element + 2nd element array + carry(if any)
         sum=arr1[i--]+arr2[j--]+carry;
+
+        //carry will the first digit of sum
         carry=sum/10;
+
+        //sum will be the last digit of sum
         sum=sum%10;
+
+        //push the sum in new array
         ans.push_back(sum);
     }
+
+    //iterate if only 1st array is left
     while(i>=0){
+
+        //sum = element of array + carry(if any)
         sum=arr1[i--]+carry;
+
+        //carry will the first digit of sum
         carry=sum/10;
+
+        //sum will be the last digit of sum
         sum=sum%10;
+
+        //push the sum in new array
         ans.push_back(sum);
     }
+
+    //iterate if only 2nd array is left
     while(j>=0){
+
+        //sum = element of array + carry(if any)
         sum=arr2[j--]+carry;
+
+        //carry will the first digit of sum
         carry=sum/10;
+
+        //sum will be the last digit of sum
         sum=sum%10;
+
+        //push the sum in new array
         ans.push_back(sum);
     }
+
+    //if there is any carry left at last
     while(carry!=0){
+
+        //sum = carry
         int sum=carry;
+
+        //carry will the first digit of sum
         carry=sum/10;
+
+        //sum will be the last digit of sum
         sum=sum%10;
+
+        //push the sum in new array
         ans.push_back(sum);
     }
+
+    //reverse the new array to get correct answer
     return reverse(ans);
 }
 

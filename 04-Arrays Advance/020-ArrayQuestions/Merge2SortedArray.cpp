@@ -3,19 +3,39 @@
 using namespace std;
 
 void Merge(vector<int>& arr1,vector<int>& arr2,vector<int>& arr3){
+
+    //pointer for array 1
     int i=0;
+
+    //pointer for array 2
     int j=0;
+
+    //pointer for new array
     int k=0;
+
+    //iterate till both the pointer are inside the array
     while(i<arr1.size() && j<arr2.size()){
+
+        //if the element from 1st array is smaller
         if(arr1[i]<arr2[j]){
+
+            //push the element of 1st array in new array
             arr3[k++]=arr1[i++];
-        }else{
+        }
+        //if the element of 2nd array is smaller
+        else{
+
+            //push the 2nd element array in new array
             arr3[k++]=arr2[j++];
         }
     }
+
+    //iterate only for 1st array if 2nd array is over
     while(i<arr1.size()){
         arr3[k++]=arr1[i++];
     }
+
+    //iterate only for 2nd array if 1st array is over
     while(j<arr2.size()){
         arr3[k++]=arr2[j++];
     }

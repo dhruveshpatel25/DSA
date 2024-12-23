@@ -3,11 +3,23 @@
 using namespace std;
 
 void Reverse(vector<int>& arr, int m){
+
+    //start pointer from mth position
     int start=m+1;
+
+    //end pointer from the last position in array
     int end=arr.size()-1;
+
+    //iterate till they cross each other
     while(start<=end){
+
+        //swap them
         swap(arr[start],arr[end]);
+
+        //move the start pointer ahead
         start++;
+
+        //move the end pointer behind
         end--;
     }
 }
