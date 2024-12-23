@@ -1,3 +1,18 @@
+/*Insertion Sort
+You are given ‘N’ integers in the form of an array ‘ARR’. Print the sorted array using the insertion sort.
+
+Note :
+No need to return anything. You should sort the array in-place.
+For example :
+Let ‘ARR’ be: [1, 4, 2]
+The sorted array will be: [1, 2, 4].
+https://www.naukri.com/code360/problems/insertion-sort_3155179
+Input: {2,3,5,4,1}
+Output: 2 3 1 5 4 
+        1 2 3 5 4 
+        1 2 3 5 4 
+        1 2 3 4 5 
+        1 2 3 4 5*/
 #include<iostream>
 using namespace std;
 
