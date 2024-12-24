@@ -14,14 +14,28 @@ https://www.naukri.com/code360/problems/aggressive-cows_1082559
 using namespace std;
 
 bool isPossible(vector<int> &stalls,int cows,int mid,int size){
+
+    //counter for no.of cows
     int cowCount=1;
+
+    //first cow placed as possible solution
     int lastPos=stalls[0];
+
+    //iterate the complete array
     for(int i=0;i<size;i++){
+
+        //check for next stalls distancce
         if(stalls[i]-lastPos>=mid){
+
+            //if greater then check for second cow
             cowCount++;
+
+            //when the counter reaches maximum return true that it is possible to store
             if(cowCount==cows){
                 return true;
             }
+
+            //update the possible position
             lastPos=stalls[i];
         }
     }
@@ -29,17 +43,40 @@ bool isPossible(vector<int> &stalls,int cows,int mid,int size){
 }
 
 int aggressiveCows(vector<int> &stalls,int cows){
+
+    //sort the array
     sort(stalls.begin(),stalls.end());
+
+    //start pointer
     int start=0;
+
+    //total no.of stalls
     int size=stalls.size();
+
+    //end pointer   
     int end=stalls[size-1];
+
+    //to store the maximum distance
     int ans=-1;
+
+    //iterate till they cross eacch other
     while(start<=end){
+
+        //find the middle value
         int mid=start+((end-start)/2);
+
+        //check is possible to store the cows for middle value
         if(isPossible(stalls,cows,mid,size)){
+
+            //if possible store middle value as possible solution
             ans=mid;
+
+            //check if there could be more maximum distance
             start=mid+1;
-        }else{
+        }
+        
+        //if not possible then check for lower value
+        else{
             end=mid-1;
         }
     }

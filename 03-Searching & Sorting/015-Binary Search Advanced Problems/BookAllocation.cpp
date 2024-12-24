@@ -23,16 +23,40 @@ https://www.naukri.com/code360/problems/allocate-books_1090540*/
 using namespace std;
 
 bool Possible(int arr[],int size,int student,int mid){
+
+    //start with student1
     int StudentCount=1;
+
+    //to calculate the pages
     int PageSum=0;
+
+    //iterate all the books
     for(int i=0; i<size ; i++){
+
+        //check whether the pages are less than the maximum pages 
         if(arr[i]+PageSum <= mid){
+
+            //if yes add pages
             PageSum+=arr[i];
-        }else{
+        }
+        
+        //if no
+        else{
+
+            //now go with other students
             StudentCount++;
+
+            //check whether the studentcount is less than the student and the pages are less than the maximum page
             if(StudentCount>student || arr[i]> mid ){
+
+                //if no then return false
                 return false;
-            }else{
+            }
+            
+            //if yes
+            else{
+
+                //add pages for that paticular student
                 PageSum=arr[i];
             }
         }
@@ -41,19 +65,44 @@ bool Possible(int arr[],int size,int student,int mid){
 }
 
 int Allocate(int arr[],int size,int student){
+
+    //start pointer
     int start=0;
+
+    //to store maximum pages
     int sum=0;
+
+    //iterate complete array
     for(int i=0; i<size; i++){
+
+        //store the sum of pages
         sum= sum+arr[i];
     }
+
+    //to store the value 
     int ans=0;
+
+    //end pointer
     int end=sum;
+
+    //iterate till they cross each other
     while(start<=end){
+
+        //get middle value
         int mid = start+((end-start)/2);
+
+        //check if it is possible to allocate books
         if(Possible(arr,size,student,mid)){
+
+            //store the middle value as possible solution
             ans=mid;
+
+            //now check whether it is possible for smaller value of pages
             end=mid-1;
-        }else{
+        }
+        
+        //check for higher value
+        else{
             start=mid+1;
         }
     }

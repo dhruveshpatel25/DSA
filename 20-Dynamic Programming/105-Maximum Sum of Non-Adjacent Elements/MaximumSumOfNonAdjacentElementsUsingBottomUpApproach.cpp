@@ -7,39 +7,34 @@ https://www.naukri.com/code360/problems/maximum-sum-of-non-adjacent-elements_843
 #include<bits/stdc++.h>
 using namespace std;
 
-int solve(vector<int>& nums,int size,vector<int>& dp){
+int solve(vector<int> &nums){
 
-    //base case when the pointer is outside the array
-    if(size<0){
-        return 0;
+    //size of the array
+    int size=nums.size();
+
+    //tabulation to store each element value
+    vector<int> dp(size,0);
+
+    //make the 0th value as element as there could not be any element behind
+    dp[0]=nums[0];
+
+    //iterate ahead
+    for(int i=1;i<size;i++){
+
+        //include the value + skip one and add next
+        int include=(i - 2 >= 0 ? dp[i - 2] : 0)+nums[i];
+
+        //exclude the value + add the next
+        int exclude=dp[i-1]+0;
+
+        //store the maximum for that value
+        dp[i]=max(include,exclude);
     }
-
-    //last element
-    if(size==0){
-        return nums[0];
-    }
-
-    //return the maximum for that particular element
-    if(dp[size]!=-1){
-        return dp[size];
-    }
-
-    //including the particular element so we skip the next element
-    int include = solve(nums,size-2,dp)+nums[size];
-
-    //excluding the particular element so we go to next element
-    int exclude = solve(nums,size-1,dp)+0;
-
-    //store the maximum for that element
-    dp[size]=max(include,exclude);
-    return dp[size];
+    return dp[size-1];
 }
 
 int maximumSum(vector<int> &nums){
-    int size=nums.size();
-    vector<int> dp(size+1,-1);
-    int ans=solve(nums,size-1,dp);
-    return ans;
+    return solve(nums);
 }
 
 int main() {
