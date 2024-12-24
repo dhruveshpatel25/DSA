@@ -10,28 +10,34 @@ int main(){
     cout<<"Enter the no. of cols: ";
     cin>>cols;
 
-    int **arr = new int*[rows]; //creating indivial array(row-wise)
+    //creating indivial array(row-wise)
+    int **arr = new int*[rows]; 
 
-    for(int i=0; i<rows; i++){ //creating columns in rows
+    //creating columns in rows
+    for(int i=0; i<rows; i++){ 
         arr[i] = new int[cols];
     }
 
-    for(int i=0; i<rows; i++){ //entering the value in 2D Array
+    //entering the value in 2D Array
+    for(int i=0; i<rows; i++){ 
         for(int j=0;j<cols;j++){
             cin>>arr[i][j];
         }
     }
 
-    for(int i=0;i<rows;i++){  //displaying the value of 2D Array
+    //displaying the value of 2D Array
+    for(int i=0;i<rows;i++){  
         for(int j=0;j<cols;j++){
             cout<<arr[i][j]<<" ";
         }
         cout<<endl;
     }
 
-    for(int i=0;i<rows;i++){ // first deleting the 2D Array formed in heap
+    //first deleting the 2D Array formed in heap
+    for(int i=0;i<rows;i++){ 
         delete[]arr[i];
     }
 
-    delete []arr;  //now deleting the pointer in stack
+    //now deleting the pointer in stack
+    delete []arr;  
 }

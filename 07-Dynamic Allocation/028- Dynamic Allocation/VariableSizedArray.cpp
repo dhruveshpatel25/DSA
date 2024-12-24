@@ -25,11 +25,13 @@ int main(){
 
     //infinite looping in static & dynamic memory allocation
 
-    while(true){  //static allocation - the variable lifespan will end with the bracket and the same space will be used stack
+    //static allocation - the variable lifespan will end with the bracket and the same space will be used stack
+    while(true){  
         int i=5;
     }
-
-    while(true){ //dynamic allocation - the variable lifespan will end within the bracket but new space will be created for every loop in heap
+    
+    //dynamic allocation - the variable lifespan will end within the bracket but new space will be created for every loop in heap
+    while(true){ 
         int *ptr = new int;
     }
 }

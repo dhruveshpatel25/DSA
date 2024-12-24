@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+//if-else function in form of inline
 inline int getmax(int& a,int& b){
     return (a>b) ? a:b;  
 }

@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 
-void print(int arr[], int size, int start=0){  //if start is not defined in main
+//(int start=0 is default argument)if start is not defined in main
+void print(int arr[], int size, int start=0){  
     for(int i=start;i<size;i++){
         cout<<arr[i]<<endl;
     }

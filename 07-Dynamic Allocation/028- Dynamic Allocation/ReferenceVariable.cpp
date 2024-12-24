@@ -1,24 +1,28 @@
 #include<iostream>
 using namespace std;
 
-int& func(int n){ //will throw warning
+//will throw warning
+int& func(int n){
     int num=n;
     int& ans=num;
     return ans;
 }
 
-int* func2(int n){ //will throw warning
+//will throw warning
+int* func2(int n){ 
     int num=n;
     int* ptr=&num;
     return ptr;
 }
 
-int update2(int& n){ //Pass by Reference-will return the value
+//Pass by Reference-will return the value
+int update2(int& n){ 
     n++;
     return n;
 }
 
-int update(int n){  //Pass by Value-will not return the value
+//Pass by Value-will not return the value
+int update(int n){  
     n++;
     return n;
 }
