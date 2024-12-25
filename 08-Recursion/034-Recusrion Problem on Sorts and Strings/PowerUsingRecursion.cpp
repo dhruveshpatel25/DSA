@@ -2,9 +2,13 @@
 using namespace std;
 
 int power(int num,int pow){
+
+    //base case
     if(pow==0){
         return 1;
     }
+
+    //recursivly call for less power
     return num*power(num,pow-1);
 }
 

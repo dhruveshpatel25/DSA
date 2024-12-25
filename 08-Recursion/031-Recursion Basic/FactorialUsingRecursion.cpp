@@ -2,9 +2,13 @@
 using namespace std;
 
 int factorial(int num){
+
+    //base case
     if(num==0){
         return 1;
     }
+
+    //recursivly call for n*n-1
     return num*factorial(num-1);
 }
 

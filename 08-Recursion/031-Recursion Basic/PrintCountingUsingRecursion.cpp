@@ -2,10 +2,14 @@
 using namespace std;
 
 int counting(int num){
+
+    //base case
     if(num==0){
         return 1;
     }
     cout<<num<<endl;
+
+    //call for previous number(going descending order)
     counting(num-1);  
 }
 

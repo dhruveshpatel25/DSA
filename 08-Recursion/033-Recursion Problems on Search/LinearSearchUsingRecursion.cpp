@@ -2,12 +2,21 @@
 using namespace std;
 
 bool linearsearch(int arr[],int size, int key){
+
+    //base case
     if(size==0){
         return false;
     }
+
+    //when element is found
     if(arr[0]==key){
         return true;
-    }else{
+    }
+    
+    //when element not found
+    else{
+
+        //recursivly call for next element
         return linearsearch(arr+1,size-1,key);
     }
 }
