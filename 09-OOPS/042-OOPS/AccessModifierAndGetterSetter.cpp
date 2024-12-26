@@ -12,10 +12,13 @@ class Hero{
     }
 
     public:
+
+    //to get private modifiers
     char getlevel(){
         return level;
     }
 
+    //to set private modifiers
     void setlevel(char ch){
         level=ch;
     }

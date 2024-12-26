@@ -8,6 +8,7 @@ class Student{
     int height;
 
     public:
+    //only way to acess private data
     int getAge(){
         return this->age;
     }

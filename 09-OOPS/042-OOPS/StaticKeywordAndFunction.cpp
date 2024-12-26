@@ -3,8 +3,11 @@ using namespace std;
 
 class Hero{
     public:
+
+    //available to all the members in the class
     static int timetocomplete; //static keyword
 
+    //can onlu access static members
     static int random(){ //static function
         return timetocomplete;
     }

@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 
-class FunOver{ //Function Overloading
+//Function Overloading
+class FunOver{ 
     public:
     void sayhello(){
         cout<<"Hello"<<endl;
@@ -25,7 +26,8 @@ class FunOver{ //Function Overloading
     }*/
 };
 
-class OpOver{ //Operator Overloading
+//Operator Overloading
+class OpOver{ 
     public:
     int a;
     int b;
@@ -39,6 +41,7 @@ class OpOver{ //Operator Overloading
     }
 };
 
+//Method Overloading
 class MetOver{
     public:
     void speak(){
