@@ -12,7 +12,8 @@ Say we have the colors with the numbers 1 and 0. We can paint the fence with 3 p
 101
 100
 010
-011*/
+011
+https://www.naukri.com/code360/problems/ninja-and-the-fence_3210208*/
 #include<bits/stdc++.h>
 using namespace std;
 const int MOD = 1e9 + 7;
