@@ -14,26 +14,41 @@ class stack{
     }
 
     void push(int element){
+
+        //if there is space
         if(size-top>1){
             top++;
             arr[top]=element;
-        }else{
+        }
+        
+        //if there is no space
+        else{
             cout<<"Stack Overflow"<<endl;
         }
     }
 
     void pop(){
+
+        //if there is element
         if(top>=0){
             top--;
-        }else{
+        }
+        
+        //if there is no element
+        else{
             cout<<"Stack Underflow"<<endl;
         }
     }
 
     int peek(){
+
+        //if there is element
         if(top>=0){
             return arr[top];
-        }else{
+        }
+        
+        //if there is no element
+        else{
             cout<<"Stack empty";
             return -1;
         }
