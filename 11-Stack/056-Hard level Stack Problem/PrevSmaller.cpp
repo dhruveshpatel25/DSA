@@ -9,12 +9,21 @@ vector<int> PrevSmaller(vector<int> &arr,int n){
     stk.push(-1);
     vector<int> ans(n);
 
+    //iterate from left to right
     for(int i=0;i<=n-1;i++){
+
+        //take the current element
         int curr=arr[i];
+
+        //check if current is smaller or not(so the greater number on the left will be removed as only the previous smaller will remain)
         while(stk.top()>curr){
             stk.pop();
         }
+
+        //save the top most element in array
         ans[i]=stk.top();
+
+        //now push the current element in stack
         stk.push(curr);
     }
     return ans;
