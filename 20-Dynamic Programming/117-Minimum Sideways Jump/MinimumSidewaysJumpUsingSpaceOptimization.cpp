@@ -29,49 +29,59 @@ https://leetcode.com/problems/minimum-sideway-jumps/description/*/
 #include<bits/stdc++.h>
 using namespace std;
 
-int solve(vector<int>& obstacles,vector<vector<int>>& dp,int currlane,int currpos){
-    int end=obstacles.size()-1;
+int solve(vector<int>& obstacles){
+    int n=obstacles.size()-1;
+    vector<int> curr(4,INT_MAX);
+    vector<int> next(4,INT_MAX);
 
-    //base case
-    if(currpos==end){
-        return 0;
-    }
+    //destination column is marked at 0
+    next[0]=0;
+    next[1]=0;
+    next[2]=0;
+    next[3]=0;
 
-    //memoization
-    if(dp[currlane][currpos]!=-1){
-        return dp[currlane][currpos];
-    }
+    //iterate for all columns behind destination till start
+    for(int currpos=n-1;currpos>=0;currpos--){
 
-    //check if we can move forward by checking if there is obstacle in current lane or not
-    if(obstacles[currpos+1]!=currlane){
+        //iterate 3 lanes
+        for(int currlane=1;currlane<=3;currlane++){
 
-        //if there is no obstacle then increase current position
-        return solve(obstacles,dp,currlane,currpos+1);
-    }else{
+            //check is obstacle is ahead or not
+            if(obstacles[currpos+1]!=currlane){
 
-        //if there is obstacle
-        int ans=INT_MAX;
+                //if not then just copy the data
+                curr[currlane]=next[currlane];
+            }else{
 
-        //check for possible position on the lane
-        for(int i=1;i<=3;i++){
+                //if there is an obstacle then check for sideway possibilty
+                int ans=INT_MAX;
 
-            //check if we dont jump on same lane and check if there is no obstacle on the lane we are iterating
-            if(currlane!=i && obstacles[currpos]!=i){
+                //iterate 3 lanes for checking possiblity
+                for(int i=1;i<=3;i++){
 
-                //get the minimum jumps
-                ans=min(ans,1+solve(obstacles,dp,i,currpos));
+                    //it should not be current lane and it should not have obstacle
+                    if(currlane!=i && obstacles[currpos]!=i){
+
+                        //get the answer from the ahead position of the new lane(so INT_MAX could be avoided)
+                        ans=min(ans,1+next[i]);
+                    }
+                }
+
+                //save the answer
+                curr[currlane]=ans;
             }
         }
 
-        //store the answer
-        dp[currlane][currpos]=ans;
-        return dp[currlane][currpos];
+        //iterate ahead
+        next=curr;
     }
-    
+
+    //minimum anwer from all 3 lanes(1 is added in 1st and 3rd lane beacuse starting lane is 2 so we have to jump sideways first)
+    return min(next[2],1+min(next[1],next[3]));
 }
+
 int minSideJumps(vector<int>& obstacles) {
-    vector<vector<int>> dp(4,vector<int>(obstacles.size(),-1));
-    return solve(obstacles,dp,2,0);
+    return solve(obstacles);
 }
 
 int main() {
