@@ -9,7 +9,8 @@ top(S) : Returns value of the top element. Note that this function does not remo
 Note :
 1) Use of any loop constructs like while, for..etc is not allowed. 
 2) The stack may contain duplicate integers.
-3) The stack may contain any integer i.e it may either be negative, positive or zero.*/
+3) The stack may contain any integer i.e it may either be negative, positive or zero.
+https://www.naukri.com/code360/problems/sort-a-stack_985275*/
 #include<iostream>
 #include<stack>
 using namespace std;

@@ -6,7 +6,7 @@ A pair of brackets is said to be redundant when a subexpression is surrounded by
 For Example :
 ((a+b)) has a pair of redundant brackets. The pair of brackets on the first and last index is needless. 
 While (a + (b*c)) does not have any pair of redundant brackets. 
-*/
+https://www.naukri.com/code360/problems/redundant-brackets_975473*/
 #include<iostream>
 #include<stack>
 using namespace std;

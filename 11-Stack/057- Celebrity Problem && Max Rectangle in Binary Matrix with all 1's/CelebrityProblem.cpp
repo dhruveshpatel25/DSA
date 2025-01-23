@@ -13,7 +13,7 @@ Explanation: The two people at the party both know each other. None of them is a
 
 Input: mat[][] = [[0]]
 Output: 0
-https://www.geeksforgeeks.org/problems/the-celebrity-problem/1?page=1&category%5B%5D=Stack&sortBy=*/
+https://www.geeksforgeeks.org/problems/the-celebrity-problem/1*/
 #include<iostream>
 #include<stack>
 #include<vector>

@@ -1,3 +1,11 @@
+/*Reverse Stack Using Recursion
+Reverse a given stack of 'N' integers using recursion. You are required to make changes in the input parameter itself.
+Note: You are not allowed to use any extra space other than the internal stack space used due to recursion.
+
+Example:
+Input: [1,2,3,4,5] 
+Output: [5,4,3,2,1]
+https://www.naukri.com/code360/problems/reverse-stack-using-recursion_631875*/
 #include<iostream>
 #include<stack>
 using namespace std;
