@@ -12,13 +12,17 @@ int findAllDuplicates( vector<int> arr){
     unordered_set<int> seen;
     unordered_set<int> duplicates;
     for(int num:arr){
+
         //if the number exist in the array then add in duplicate array
         if(seen.find(num)!=seen.end()){
             duplicates.insert(num);
-        }else{ //if the number does not exist add it to seen array
+        }else{ 
+
+            //if the number does not exist add it to seen array
             seen.insert(num);
         }
     }
+    
     //only print the duplicate part
     for(int num:duplicates){
         cout<<num<<" ";

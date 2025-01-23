@@ -16,6 +16,7 @@ bool FindUniqueOccurence(int arr[],int size){
     int freq[100]={0};
     for(int i=0;i<100;i++){
         if(count[i]>0){
+            
             //if the frequency is more then 2 then return false
             if(freq[count[i]]>0){
                 return false;

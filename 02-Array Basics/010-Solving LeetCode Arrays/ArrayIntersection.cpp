@@ -1,6 +1,5 @@
 /*Intersection Of Two Sorted Arrays
 You are given two arrays 'A' and 'B' of size 'N' and 'M' respectively. Both these arrays are sorted in non-decreasing order. You have to find the intersection of these two arrays.
-
 Intersection of two arrays is an array that consists of all the common elements occurring in both arrays.
 
 Note :
@@ -8,7 +7,7 @@ Note :
 2. Both the arrays are sorted in non-decreasing order.
 3. The output should be in the order of elements that occur in the original arrays.
 4. If there is no intersection present then return an empty array.
-https://www.naukri.com/code360/problems/intersection-of-2-arrays_1082149?source=youtube&campaign=love_babbar_codestudio1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio1*/
+https://www.naukri.com/code360/problems/intersection-of-2-arrays_1082149*/
 #include<iostream>
 #include<climits>
 using namespace std;
