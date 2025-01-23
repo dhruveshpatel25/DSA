@@ -25,7 +25,11 @@ bool Checkequal(int count1[26],int count2[26]){
 }
 
 bool PermutationInString(string& chota, string& bada){
+
+    //count for each character to be searched
     int count1[26]={0};
+
+    //iterate the characters and save frequency
     for(int i=0;i<chota.length();i++){
         int index=chota[i]-'a';
         count1[index]++;
@@ -34,26 +38,37 @@ bool PermutationInString(string& chota, string& bada){
     int i=0;
     int windowsize=chota.length();
     int count2[26]={0};
+
+    //iterate the first window of size of character to be searched
     while(i<chota.length() && windowsize<=bada.length()){
         int index= bada[i]-'a';
         count2[index]++;
         i++;
     }
+
+    //check if they are equal
     if(Checkequal(count1,count2)){
         return 1;
     }   
 
+    //move the window ahead
     while(i<=bada.length()){
+
+        //add the next element
         char New=bada[i];
         int index= New-'a';
         count2[index]++;
 
+
+        //remove the old element
         char Old=bada[i-windowsize];
         index= Old-'a';
         count2[index]--;
 
+        //iterate ahead
         i++;
 
+        //check if they are equal or not
         if(Checkequal(count1,count2)){
             return true;
         }
