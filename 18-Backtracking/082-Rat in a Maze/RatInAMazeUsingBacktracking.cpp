@@ -14,7 +14,7 @@ DDRDRR DRDDRR
 i.e. Path-1: DDRDRR and Path-2: DRDDRR
 
 The rat can reach the destination at (3, 3) from (0, 0) by two paths, i.e. DRDDRR and DDRDRR when printed in sorted order, we get DDRDRR DRDDRR.
-https://www.naukri.com/code360/problems/rat-in-a-maze_1215030?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/rat-in-a-maze_1215030*/
 #include<iostream>
 #include<vector>
 using namespace std;

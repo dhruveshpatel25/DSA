@@ -8,7 +8,7 @@ Two queens on the same chessboard can attack each other if any of the below cond
 1. They share a row. 
 2. They share a column. 
 3. They share a diagonal. 
-https://www.naukri.com/code360/problems/the-n-queens-puzzle_981286?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/the-n-queens-puzzle_981286*/
 #include<iostream>
 #include<vector>
 using namespace std;

@@ -8,7 +8,7 @@ A Sudoku solution must satisfy all the following conditions-
 3. Each of the digits 1-9 must occur exactly once in each of the 9, 3x3 sub-grids of the grid.
 
 You can also assume that there will be only one sudoku solution for the given matrix.
-https://www.naukri.com/code360/problems/sudoku-solver_699919?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/sudoku-solver_699919*/
 #include<iostream>
 #include<vector>
 using namespace std;
