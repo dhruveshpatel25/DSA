@@ -3,8 +3,7 @@ The complement of an integer is the integer you get when you flip all the 0's to
 
 For example, The integer 5 is "101" in binary and its complement is "010" which is the integer 2.
 Given an integer n, return its complement
-https://leetcode.com/problems/complement-of-base-10-integer/description/
-*/
+https://leetcode.com/problems/complement-of-base-10-integer/description/*/
 #include<iostream>
 using namespace std;
 
