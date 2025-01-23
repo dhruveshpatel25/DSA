@@ -21,8 +21,7 @@ Input: arr[] = [10]
 Output: 0
 Explanation: Since there is only one rope, no connections are needed, so the cost is 0.
 https://www.geeksforgeeks.org/problems/minimum-cost-of-ropes-1587115620/1*/
-#include<iostream>
-#include<queue>
+#include<bits/stdc++.h>
 using namespace std;
 
 int miniCost(int arr[],int numberofropes){
