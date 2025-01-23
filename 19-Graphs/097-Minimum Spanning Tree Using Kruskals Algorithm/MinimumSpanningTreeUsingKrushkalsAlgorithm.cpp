@@ -4,7 +4,7 @@ You are given an undirected, connected and weighted graph G(V, E), consisting of
 Find and print the total weight of the Minimum Spanning Tree (MST) using Kruskal's algorithm.
 
 By definition, a minimum weight spanning tree is a subset of the edges of a connected, edge-weighted undirected graph that connects all the vertices together, without any cycles and with the minimum possible total edge weight.
-https://www.naukri.com/code360/problems/minimum-spanning-tree_631769?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/minimum-spanning-tree_631769*/
 #include <bits/stdc++.h>
 using namespace std;
 

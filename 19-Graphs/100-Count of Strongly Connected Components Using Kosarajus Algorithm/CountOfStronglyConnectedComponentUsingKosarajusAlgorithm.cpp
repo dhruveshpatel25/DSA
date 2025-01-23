@@ -6,7 +6,7 @@ A directed graph is said to be strongly connected if every vertex is reachable f
 Note :
 Use zero-based indexing for the vertices.
 The given graph doesn’t contain any self-loops.
-https://www.naukri.com/code360/problems/count-strongly-connected-components-kosaraju-s-algorithm_1171151?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/count-strongly-connected-components-kosaraju-s-algorithm_1171151*/
 #include <bits/stdc++.h>
 using namespace std;
 

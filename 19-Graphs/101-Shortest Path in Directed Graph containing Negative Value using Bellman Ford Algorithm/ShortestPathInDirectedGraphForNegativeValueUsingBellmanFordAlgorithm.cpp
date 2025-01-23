@@ -4,7 +4,7 @@ Your task is to calculate the shortest distance of all vertices from the source 
 
 Note:
 If there is no path between 'src' and 'ith' vertex, the value at 'ith' index in the answer array will be 10^8.
-https://www.naukri.com/code360/problems/bellmon-ford_2041977?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/bellmon-ford_2041977*/
 #include <bits/stdc++.h>
 using namespace std;
 

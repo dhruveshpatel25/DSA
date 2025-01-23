@@ -1,6 +1,6 @@
 /*Bridges In A Graph
 Given an undirected graph of V vertices and E edges. Your task is to find all the bridges in the given undirected graph. A bridge in any graph is defined as an edge which, when removed, makes the graph disconnected (or more precisely, increases the number of connected components in the graph).
-https://www.naukri.com/code360/problems/bridges-in-graph_893026?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/bridges-in-graph_893026*/
 #include <bits/stdc++.h>
 using namespace std;
 void dfs(int node,int parent,int &timer,vector<int>& discovery,vector<int>& low, vector<vector<int>>& ans,unordered_map<int,list<int> > &adjList,unordered_map<int,bool>& visited){

@@ -6,7 +6,7 @@ V is the number of vertices present in graph G and vertices are numbered from 0 
 E is the number of edges present in graph G.
 Note :
 The Graph may not be connected i.e there may exist multiple components in a graph.
-https://www.naukri.com/code360/problems/dfs-traversal_630462?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/dfs-traversal_630462*/
 #include<iostream>
 #include<unordered_map>
 #include<list>

@@ -16,7 +16,7 @@ Input: N = 3 , Edges =  [[1, 2], [2, 3], [1, 3]].
 Output: Yes
 
 Explanation : There are a total of 3 vertices in the graph. There is an edge between vertex 1 and 2, vertex 2 and 3 and vertex 1 and 3. So, there exists a cycle in the graph. 
-https://www.naukri.com/code360/problems/cycle-detection-in-undirected-graph_1062670?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/cycle-detection-in-undirected-graph_1062670*/
 #include<iostream>
 #include<unordered_map>
 #include<list>

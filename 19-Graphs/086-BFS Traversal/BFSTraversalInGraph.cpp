@@ -24,7 +24,7 @@ Vertices 3, 4, and 5 have no outgoing edges.
 We can also see this in the diagram below.
 
 BFS traversal: 0 1 2 3 4 5
-https://www.naukri.com/code360/problems/bfs-in-graph_973002?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/bfs-in-graph_973002*/
 #include<iostream>
 #include<unordered_map>
 #include<list>

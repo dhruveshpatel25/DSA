@@ -8,7 +8,7 @@ Note :
 3. The graph may or may not be connected.
 4. Nodes are numbered from 1 to N.
 5. Your solution will run on multiple test cases. If you are using global variables make sure to clear them.
-https://www.naukri.com/code360/problems/detect-cycle-in-a-directed-graph_1062626?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/detect-cycle-in-a-directed-graph_1062626*/
 #include<iostream>
 #include<unordered_map>
 #include<list>
