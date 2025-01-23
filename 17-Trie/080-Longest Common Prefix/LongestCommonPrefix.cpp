@@ -6,7 +6,7 @@ A prefix of a string can be defined as a substring obtained after removing some 
 For Example:
 Consider ARR = [“coding”, ”codezen”, ”codingninja”, ”coders”]
 The longest common prefix among all the given strings is “cod” as it is present as a prefix in all strings. Hence, the answer is “cod”.
-https://www.naukri.com/code360/problems/longest-common-prefix_2090383?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/longest-common-prefix_2090383*/
 #include<iostream>
 #include<vector>
 using namespace std;

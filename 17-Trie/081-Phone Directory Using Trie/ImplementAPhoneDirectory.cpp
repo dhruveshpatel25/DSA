@@ -3,7 +3,7 @@ You are given a list/array of strings which denotes the contacts that exist in y
 
 Note :
 If no suggestions are found, return an empty 2D array.
-https://www.naukri.com/code360/problems/implement-a-phone-directory_1062666?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/implement-a-phone-directory_1062666*/
 #include<iostream>
 #include<vector>
 using namespace std;
