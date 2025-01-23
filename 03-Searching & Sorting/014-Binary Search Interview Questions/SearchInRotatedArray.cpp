@@ -14,7 +14,7 @@ Input: 'arr' = [12, 15, 18, 2, 4] , 'k' = 2
 Output: 3
 Explanation:
 If 'arr' = [12, 15, 18, 2, 4] and 'k' = 2, then the position at which 'k' is present in the array is 3 (0-indexed).
-*/
+https://www.naukri.com/code360/problems/search-in-rotated-sorted-array_1082554*/
 #include<iostream>
 using namespace std;
 

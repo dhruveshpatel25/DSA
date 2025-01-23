@@ -8,8 +8,7 @@ Example:
 Input: 'n' = 3, 'k' = 2 and 'arr' = {1, 2, 3}
 Output: 2
 Explanation: The maximum possible minimum distance will be 2 when 2 cows are placed at positions {1, 3}. Here distance between cows is 2.
-https://www.naukri.com/code360/problems/aggressive-cows_1082559
-*/
+https://www.naukri.com/code360/problems/aggressive-cows_1082559*/
 #include <bits/stdc++.h> 
 using namespace std;
 

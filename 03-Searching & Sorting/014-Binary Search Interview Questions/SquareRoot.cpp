@@ -7,7 +7,7 @@ Input: ‘n’ = 7
 Output: 2
 Explanation:
 The square root of the number 7 lies between 2 and 3, so the floor value is 2.
-*/
+https://www.naukri.com/code360/problems/square-root-integral_893351*/
 #include<iostream>
 using namespace std;
 
