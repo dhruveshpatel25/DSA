@@ -4,7 +4,7 @@ You are given ‘K’ lists containing non-negative integers. Each list has a si
 For example :
 
 If we have 3 lists as [1, 10, 11], [2, 3, 20], [5, 6, 12] then the [1, 5] is the range that includes 1 from the first list, 2,3 from the second list, and 5 from the third list i.e, this range contains at least one element from each list.
-https://www.naukri.com/code360/problems/smallest-range-from-k-sorted-list_1069356?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/smallest-range-from-k-sorted-list_1069356*/
 #include <bits/stdc++.h> 
 using namespace std;
 

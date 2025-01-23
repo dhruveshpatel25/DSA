@@ -1,6 +1,6 @@
 /*Merge K Sorted Arrays
 You have been given ‘K’ different arrays/lists, which are sorted individually (in ascending order). You need to merge all the given arrays/list such that the output array/list should be sorted in ascending order.
-https://www.naukri.com/code360/problems/merge-k-sorted-arrays_975379?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/merge-k-sorted-arrays_975379*/
 #include <bits/stdc++.h> 
 using namespace std;
 

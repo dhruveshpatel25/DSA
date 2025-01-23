@@ -1,6 +1,7 @@
 /*Merge k sorted lists
 Given 'k' sorted linked lists, each list is sorted in increasing order. You need to merge all these lists into one single sorted list. You need to return the head of the final linked list.
-https://www.naukri.com/code360/problems/merge-k-sorted-lists_992772?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/#include <bits/stdc++.h> 
+https://www.naukri.com/code360/problems/merge-k-sorted-lists_992772*/
+#include <bits/stdc++.h> 
 using namespace std;
 
 class Node{

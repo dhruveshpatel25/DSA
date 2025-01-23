@@ -2,7 +2,7 @@
 Given that integers are read from a data stream. Your task is to find the median of the elements read so far.
 
 Median is the middle value in an ordered integer list. If the size of the list is even there is no middle value. So the median is the floor of the average of the two middle values.
-https://www.naukri.com/code360/problems/median-in-a-stream_975268?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/median-in-a-stream_975268*/
 #include <bits/stdc++.h> 
 using namespace std;
 
