@@ -1,3 +1,13 @@
+/* LCA of Two Nodes In A BST
+You are given a binary search tree of integers with N nodes. You are also given references to two nodes 'P' and 'Q' from this BST.
+Your task is to find the lowest common ancestor(LCA) of these two given nodes.
+The lowest common ancestor for two nodes P and Q is defined as the lowest node that has both P and Q as descendants (where we allow a node to be a descendant of itself)
+
+A binary search tree (BST) is a binary tree data structure which has the following properties.
+• The left subtree of a node contains only nodes with data less than the node’s data.
+• The right subtree of a node contains only nodes with data greater than the node’s data.
+• Both the left and right subtrees must also be binary search trees.
+https://www.naukri.com/code360/problems/lca-in-a-bst_981280*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -8,7 +18,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){
@@ -64,7 +78,9 @@ Node* insertToBST(Node* root,int data){
     //iterate to right if the data is greater than the root data
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{ //iterate to left if the data is smaller than the root data
+    }else{ 
+        
+    //iterate to left if the data is smaller than the root data
         root->left = insertToBST(root->left,data);
     }
     return root;
@@ -91,7 +107,9 @@ Node* LCAInBST(Node* root, Node* node1,Node* node2){
         //if both the nodes are smaller then the root then iterate to left
         else if(root->data>node1->data && root->data>node2->data){
             root=root->left;
-        }else{ //return the root
+        }else{ 
+        
+        //return the root
             return root;
         }
     }

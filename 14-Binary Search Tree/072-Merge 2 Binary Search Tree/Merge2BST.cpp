@@ -2,12 +2,10 @@
 You are given two binary search trees of integers having ‘N’ and ‘M’ nodes. Return an array that contains elements of both BST in sorted order.
 
 A binary search tree (BST) is a binary tree data structure with the following properties.
-
-• The left subtree of a node contains only nodes with data less than the node’s data.
-
-• The right subtree of a node contains only nodes with data greater than the node’s data.
-
-• Both the left and right subtrees must also be binary search trees.*/
+    • The left subtree of a node contains only nodes with data less than the node’s data.
+    • The right subtree of a node contains only nodes with data greater than the node’s data.
+• Both the left and right subtrees must also be binary search trees.
+https://www.naukri.com/code360/problems/h_920474*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -18,7 +16,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){
@@ -37,7 +39,9 @@ Node* insertToBST(Node* root,int data){
     //iterate to right if the data is greater than the root data
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{ //iterate to left if the data is smaller than the root data
+    }else{ 
+        
+    //iterate to left if the data is smaller than the root data
         root->left = insertToBST(root->left,data);
     }
     return root;

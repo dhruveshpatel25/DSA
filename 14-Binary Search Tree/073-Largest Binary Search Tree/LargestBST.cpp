@@ -1,14 +1,11 @@
 /*Size of Largest BST in Binary Tree
 You have been given a Binary Tree of 'N' nodes, where the nodes have integer values. Your task is to return the size of the largest subtree of the binary tree which is also a BST.
 
-
-
 A binary search tree (BST) is a binary tree data structure which has the following properties.
-
 • The left subtree of a node contains only nodes with data less than the node’s data.
 • The right subtree of a node contains only nodes with data greater than the node’s data.
 • Both the left and right subtrees must also be binary search trees.
-https://www.naukri.com/code360/problems/largest-bst-subtree_893103?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/largest-bst-subtree_893103*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -19,7 +16,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){
@@ -40,6 +41,7 @@ Node* buildtree(Node *root){
 
     //cout<<"Enter the data for inserting in left of "<<data<<endl;
     root->left=buildtree(root->left);
+    
     //cout<<"Enter the data for inserting in right of "<<data<<endl;
     root->right=buildtree(root->right);
     return root;

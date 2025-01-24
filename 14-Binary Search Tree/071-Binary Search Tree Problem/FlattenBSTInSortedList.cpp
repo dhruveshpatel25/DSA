@@ -3,7 +3,7 @@ Problem statement
 You have been given a Binary Search Tree (BST). Your task is to flatten the given BST to a sorted list. More formally, you have to make a right-skewed BST from the given BST, i.e., the left child of all the nodes must be NULL, and the value at the right child must be greater than the current node.
 
 A binary search tree (BST), also called an ordered or sorted binary tree, is a rooted binary tree whose internal nodes each store a value greater than all the values in the node's left subtree and less than those in its right subtree.
-https://www.naukri.com/code360/problems/flatten-bst-to-a-sorted-list_1169459?leftPanelTab=0*/
+https://www.naukri.com/code360/problems/flatten-bst-to-a-sorted-list_1169459*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -14,7 +14,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){
@@ -71,6 +75,8 @@ Node* insertToBST(Node* root,int data){
     if(data>root->data){
         root->right = insertToBST(root->right,data);
     }else{
+
+    //iterate to left if the data is smaller than the root data
         root->left = insertToBST(root->left,data);
     }
     return root;

@@ -8,7 +8,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){
@@ -24,9 +28,12 @@ Node* insertToBST(Node* root,int data){
         return root;
     }
 
+    //if data is greater then the root 
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{
+    }else{ 
+        
+    //if data is smaller then the root
         root->left = insertToBST(root->left,data);
     }
     return root;

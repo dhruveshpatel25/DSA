@@ -1,3 +1,12 @@
+/*Partial BST
+Given a binary tree with N number of nodes, check if that input tree is Partial BST (Binary Search Tree) or not. If yes, return true, return false otherwise.
+
+A binary search tree (BST) is said to be a Partial BST if it follows the following properties.
+
+• The left subtree of a node contains only nodes with data less than and equal to the node’s data.
+• The right subtree of a node contains only nodes with data greater than and equal to the node’s data.
+• Both the left and right subtrees must also be partial binary search trees.
+https://www.naukri.com/code360/problems/validate-bst_799483*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -8,7 +17,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){
@@ -29,6 +42,7 @@ Node* buildtree(Node *root){
 
     //cout<<"Enter the data for inserting in left of "<<data<<endl;
     root->left=buildtree(root->left);
+    
     //cout<<"Enter the data for inserting in right of "<<data<<endl;
     root->right=buildtree(root->right);
     return root;

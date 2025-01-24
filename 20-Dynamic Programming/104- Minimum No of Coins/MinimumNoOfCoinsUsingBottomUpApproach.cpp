@@ -9,7 +9,7 @@ Way 1 - You can take 4 elements  [2, 2, 2, 1] as 2 + 2 + 2 + 1 = 7.
 Way 2 - You can take 3 elements  [3, 3, 1] as 3 + 3 + 1 = 7.
 Here, you can see in Way 2 we have used 3 coins to reach the target sum of 7.
 Hence the output is 3.
-https://www.naukri.com/code360/problems/minimum-elements_3843091?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar*/
+https://www.naukri.com/code360/problems/minimum-elements_3843091*/
 #include<bits/stdc++.h>
 using namespace std;
 

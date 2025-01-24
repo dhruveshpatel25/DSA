@@ -7,7 +7,7 @@ A binary search tree (BST) is a binary tree data structure that has the followin
 • The right subtree of a node contains only nodes with data greater than the node’s data.
 • Both the left and right subtrees must also be binary search trees.
 A Balanced BST is defined as a BST, in which the height of two subtrees of every node differs no more than 1.
-https://www.naukri.com/code360/problems/normal-bst-to-balanced-bst_920472?leftPanelTab=0*/
+https://www.naukri.com/code360/problems/normal-bst-to-balanced-bst_920472*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -18,7 +18,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){

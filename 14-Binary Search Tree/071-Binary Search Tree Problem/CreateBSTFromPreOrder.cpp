@@ -11,7 +11,7 @@ A binary search tree (BST) is a binary tree data structure that has the followin
 Note:
 
 It is guaranteed that a BST can be always constructed from the given preorder traversal. Hence, the answer will always exist.
-https://www.naukri.com/code360/problems/preorder-traversal-to-bst_893111?leftPanelTab=0*/
+https://www.naukri.com/code360/problems/preorder-traversal-to-bst_893111*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -22,7 +22,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){
@@ -78,7 +82,9 @@ Node* insertToBST(Node* root,int data){
     //iterate to right if the data is greater than the root data
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{ //iterate to left if the data is smaller than the root data
+    }else{ 
+        
+    //iterate to left if the data is smaller than the root data
         root->left = insertToBST(root->left,data);
     }
     return root;

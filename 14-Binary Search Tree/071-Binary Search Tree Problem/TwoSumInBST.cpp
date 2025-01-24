@@ -1,9 +1,8 @@
 /*Two Sum IV - Input is a BST
-
 You have been given a Binary Search Tree and a target value. You need to find out whether there exists a pair of node values in the BST, such that their sum is equal to the target value.
 
 A binary search tree (BST), also called an ordered or sorted binary tree, is a rooted binary tree whose internal nodes each store a value greater than all the values keys in the node's left subtree and less than those in its right subtree.
-https://www.naukri.com/code360/problems/two-sum-in-a-bst_1062631?leftPanelTab=0*/
+https://www.naukri.com/code360/problems/two-sum-in-a-bst_1062631*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -14,7 +13,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){
@@ -23,7 +26,6 @@ class Node{
         this->right=NULL;
     }
 };
-
 void levelOrderTraversal(Node *root){
     queue<Node*> que;
     que.push(root);
@@ -70,7 +72,9 @@ Node* insertToBST(Node* root,int data){
     //iterate to right if the data is greater than the root data
     if(data>root->data){
         root->right = insertToBST(root->right,data);
-    }else{ //iterate to left if the data is smaller than the root data
+    }else{ 
+        
+    //iterate to left if the data is smaller than the root data
         root->left = insertToBST(root->left,data);
     }
     return root;

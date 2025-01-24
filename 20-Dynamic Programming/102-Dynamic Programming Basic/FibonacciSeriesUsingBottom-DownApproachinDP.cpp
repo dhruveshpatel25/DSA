@@ -12,7 +12,7 @@ Explanation: The number is ‘6’ so we have to find the “6th” Fibonacci nu
 So by using the given formula of the Fibonacci series, we get the series:    
 [ 1, 1, 2, 3, 5, 8, 13, 21]
 So the “6th” element is “8” hence we get the output.
-https://www.naukri.com/code360/problems/nth-fibonacci-number_74156?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar */
+https://www.naukri.com/code360/problems/nth-fibonacci-number_74156*/
 #include<bits/stdc++.h>
 using namespace std;
 
