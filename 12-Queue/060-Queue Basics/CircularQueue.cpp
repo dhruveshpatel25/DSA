@@ -1,3 +1,11 @@
+/* Circular Queue
+You will be given ‘Q’ queries. You need to implement a circular queue according to those queries. Each query will belong to one of these two types:
+
+1 ‘X’: Enqueue element ‘X’ into the end of the nth queue. Returns true if the element is enqueued, otherwise false.
+2: Dequeue the element at the front of the nth queue. Returns -1 if the queue is empty, otherwise, returns the dequeued element.
+Note:
+Enqueue means adding an element to the end of the queue, while Dequeue means removing the element from the front of the queue.
+https://www.naukri.com/code360/problems/circular-queue_1170058*/
 #include<iostream>
 using namespace std;
 
@@ -16,6 +24,7 @@ class Queue{
     }
 
     void enqueue(int data){
+
         //check overflow 
         if((front==0 && rear==size-1) || (rear==(front-1)%(size-1))){
             cout<<"Queue is Full"<<endl;

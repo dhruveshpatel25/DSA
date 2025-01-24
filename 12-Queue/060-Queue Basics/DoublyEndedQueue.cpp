@@ -1,3 +1,25 @@
+/* Implement Deque
+Problem statement
+Design a data structure to implement deque of size ‘N’. It should support the following operations:
+pushFront(X): Inserts an element X in the front of the deque. Returns true if the element is inserted, otherwise false.
+pushRear(X): Inserts an element X in the back of the deque. Returns true if the element is inserted, otherwise false.
+popFront(): Pops an element from the front of the deque. Returns -1 if the deque is empty, otherwise returns the popped element.
+popRear(): Pops an element from the back of the deque. Returns -1 if the deque is empty, otherwise returns the popped element.
+getFront(): Returns the first element of the deque. If the deque is empty, it returns -1.
+getRear(): Returns the last element of the deque. If the deque is empty, it returns -1.
+isEmpty(): Returns true if the deque is empty, otherwise false.
+isFull(): Returns true if the deque is full, otherwise false.
+
+Following types of queries denote these operations:
+Type 1: for pushFront(X) operation.
+Type 2: for pushRear(X) operation.
+Type 3: for popFront() operation.
+Type 4: for popRear() operation.
+Type 5: for getFront() operation.
+Type 6: for getRear() operation.
+Type 7: for isEmpty() operation.
+Type 8: for isFull() operation.
+https://www.naukri.com/code360/problems/deque_1170059*/
 #include<iostream>
 #include<queue>
 using namespace std;

@@ -7,12 +7,14 @@ queue<int> interleaving(queue<int> que){
     queue<int> newque;
     int halfSize=que.size()/2;
 
+    //pushing the first half in queue
     for(int i=0;i<halfSize;i++){
         int val=que.front();
         que.pop();
         newque.push(val);
     }
 
+    //now reversing it
     while(!newque.empty()){
         int val=newque.front();
         newque.pop();
