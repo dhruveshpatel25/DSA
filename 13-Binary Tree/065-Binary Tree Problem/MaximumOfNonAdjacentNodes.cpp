@@ -1,3 +1,16 @@
+/*Maximum sum of Non-adjacent nodes
+Given a binary tree with a value associated with each node, we need to choose a subset of these nodes such that the sum of chosen nodes is maximum under a constraint that no two chosen nodes in the subset should be directly connected that is, if we have taken a node in our sum then we can’t take its any children or parents in consideration and vice versa.
+
+Examples:
+
+Input:
+Output: 11
+Explanation: The maximum sum is sum of node 11.
+
+Input:
+Output: 16
+Explanation: The maximum sum is sum of nodes 1 4 5 6, i.e 16. These nodes are non adjacent.
+https://www.geeksforgeeks.org/problems/maximum-sum-of-non-adjacent-nodes/1*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -8,7 +21,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){

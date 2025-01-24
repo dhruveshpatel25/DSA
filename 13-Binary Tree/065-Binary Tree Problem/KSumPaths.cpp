@@ -1,3 +1,26 @@
+/*K Sum Paths
+Given a binary tree and an integer k, the task is to count the number of paths in the tree such that the sum of the nodes in each path equals k. A path can start from any node and end at any node and must be downward only.
+
+Examples:
+
+Input: Tree =  1  k = 3                               
+             /   \                          
+           2     3
+Output: 2
+Explanation:
+Path 1 : 1 + 2 = 3
+Path 2 : only leaf node 3
+
+Input: Tree = 8  k = 7  
+            /   \
+          4      5
+         /   \       \
+       3     2       2                        
+      /   \     \                    
+    3    -2    1       
+Output: 3
+Explanation: The following paths sum to k 
+https://www.geeksforgeeks.org/problems/k-sum-paths/1*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -8,7 +31,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){

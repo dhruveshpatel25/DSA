@@ -5,7 +5,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){
@@ -27,12 +31,14 @@ Node* buildtree(Node *root){
 
     //cout<<"Enter the data for inserting in left of "<<data<<endl;
     root->left=buildtree(root->left);
+
     //cout<<"Enter the data for inserting in right of "<<data<<endl;
     root->right=buildtree(root->right);
     return root;
 }
 
-void Inorder(Node* root){  //Left Node->Root Node->Right Node
+//Left Node->Root Node->Right Node
+void Inorder(Node* root){  
     if(root==NULL){
         return;
     }
@@ -42,7 +48,8 @@ void Inorder(Node* root){  //Left Node->Root Node->Right Node
     Inorder(root->right);
 }
 
-void Preorder(Node* root){  //Root Node->Left Node->Right Node
+//Root Node->Left Node->Right Node
+void Preorder(Node* root){  
     if(root==NULL){
         return;
     }
@@ -52,7 +59,8 @@ void Preorder(Node* root){  //Root Node->Left Node->Right Node
     Preorder(root->right);
 }
 
-void Postorder(Node* root){  //Left Node->Right Node->Root Node
+//Left Node->Right Node->Root Node
+void Postorder(Node* root){  
     if(root==NULL){
         return;
     }

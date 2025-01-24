@@ -6,7 +6,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){

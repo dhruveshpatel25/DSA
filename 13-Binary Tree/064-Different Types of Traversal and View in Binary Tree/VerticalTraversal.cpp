@@ -1,3 +1,34 @@
+/*Vertical Tree Traversal
+Given a Binary Tree, find the vertical traversal of it starting from the leftmost level to the rightmost level.
+If there are multiple nodes passing through a vertical line, then they should be printed as they appear in level order traversal of the tree.
+
+Examples:
+
+Input: root = [1, 2, 3, 4, 5, 6, 7, N, N, N, N, N, 8, N, 9]
+
+ Vertical-Taversal-          
+Output: [4, 2, 1, 5, 6, 3, 8, 7, 9] 
+Explanation: from left to right the vertical order will be [4, 2, 1, 5, 6, 3, 8, 7, 9] 
+
+Input: root = [1, 2, 3, 4, 5, N, 6]
+
+       1
+    /    \
+   2       3
+ /    \      \
+4      5      6
+Output: [4, 2, 1, 5, 3, 6]
+Explanation: from left to right the vertical order will be [4, 2, 1, 5, 3, 6]
+
+Input: root = [7, 2, 3, 4, 5, N, 6]
+     7
+    /    \
+   2       3
+ /    \      \
+4      5      6
+Output: [4, 2, 7, 5, 3, 6]
+Explanation: from left to right the vertical order will be [4, 2, 7, 5, 3, 6]
+https://www.geeksforgeeks.org/problems/print-a-binary-tree-in-vertical-order/1*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -7,7 +38,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){

@@ -1,3 +1,26 @@
+/*Right View of Binary Tree
+Given a Binary Tree, Your task is to return the values visible from Right view of it.
+
+Right view of a Binary Tree is set of nodes visible when tree is viewed from right side.
+
+Examples :
+
+Input: root = [1, 2, 3, 4, 5]
+     2_2
+Output: [1, 3, 5]
+
+Input: root = [1, 2, 3, 4, N, N, 5]
+     Right-view-in-binary-tree-1
+Output: [1, 3, 4, 5]
+
+Input: root = [10, 20, 90, 40, 60]
+     10
+    /   \
+  20     90
+ /   \
+40  60 
+Output: [10, 90, 60]
+https://www.geeksforgeeks.org/problems/right-view-of-binary-tree/1*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -7,7 +30,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){

@@ -1,3 +1,30 @@
+/*Morris traversal for Inorder
+Given a Binary Tree, the task is to print its Inorder Traversal, without using recursion or stack.
+
+Examples:
+
+Input:
+Output: [4, 2, 5, 1, 3]
+Explanation: Inorder traversal (Left->Root->Right) of the tree is 4, 2, 5, 1, 3.
+
+Input:
+Output: [1, 7, 10, 8, 6, 10, 5, 6]
+Explanation: Inorder traversal (Left->Root->Right) of the tree is 1, 7, 10, 8, 6, 10, 5, 6.
+
+Approach:
+Using Morris Traversal, we can traverse the tree without using stack and recursion. The idea of Morris Traversal is based on Threaded Binary Tree. In this traversal, we first create links to Inorder successor and print the data using these links, and finally revert the changes to restore original tree. Although the tree is modified through the traversal, it is reverted back to its original shape after the completion. Unlike Stack based traversal, no extra space is required for this traversal.
+
+Follow the steps below to solve the problem:
+    Initialize current as root and repeat the following steps,as long as the current node is not NULL.
+    If the current does not have left childthen print current’s data and go to the right, i.e., current = current->right.
+    Else, find inorder predecessor of current (rightmost node in current left subtree or node whose right child is equal to current).
+        If we foundthat right child of inorder predecessor is equal to current then,
+            update its the right child as NULL and print current’s data.
+            Go to the right, i.e. current = current->right.
+        Else
+            Make current as the right child of its inorder predecessor; and
+            Go to current’s left child, i.e., current = current->left.
+https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/*/
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -8,7 +35,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left subtree
     Node *left;
+
+    //right subtree
     Node *right;
     
     Node(int data){
