@@ -35,18 +35,25 @@ https://www.geeksforgeeks.org/problems/check-if-it-is-possible-to-survive-on-isl
 using namespace std;
 
 int minimumDays(int S, int N, int M) {
+
+    //count of sundays
     int sunday=S/7;
 
+    //count of buying days
     int buyingDays=S-sunday;
+
+    //total food required
     int totalFood=S*M;
     int ans=0;
 
+    //if complete divisible 
     if(totalFood%N==0){
         ans=totalFood/N;
     }else{
         ans=totalFood/N +1;
     }
 
+    //if the answer is less than buying days then if is feasible
     if(ans<=buyingDays){
         return ans;
     }else{

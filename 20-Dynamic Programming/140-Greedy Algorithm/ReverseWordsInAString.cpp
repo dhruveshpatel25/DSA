@@ -24,8 +24,12 @@ string reverseWords(string &s) {
 
     for (int i = s.length() - 1; i >= 0; i--) {
         if (s[i] != ' ') {
-            temp = s[i] + temp;  // Build the current word
+
+            // Build the current word
+            temp = s[i] + temp; 
         } else if (!temp.empty()) {
+
+            
             // Add the word to the result
             if (!ans.empty()) ans += " ";
             ans += temp;

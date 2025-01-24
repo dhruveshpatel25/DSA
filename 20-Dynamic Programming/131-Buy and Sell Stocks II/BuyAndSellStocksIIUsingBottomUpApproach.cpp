@@ -26,19 +26,39 @@ using namespace std;
 
 int solve(vector<int>& prices){
     int n=prices.size();
+
+    //tabulation
     vector<vector<int>> dp(n+1,vector<int>(2,0));
+
+    //iterating all the stocks
     for(int index=n-1;index>=0;index--){
+
+        //either for buy or sell
         for(int buy=0;buy<=1;buy++){
             int profit=0;
             if(buy==1){
+
+                //including the stock
                 int include=-prices[index]+dp[index+1][0];
+
+                //excluding the stock
                 int exclude=0+dp[index+1][1];
+
+                //saving the maximum
                 profit=max(include,exclude);
             }else{
+
+                //removing the stock
                 int remove=prices[index]+dp[index+1][1];
+
+                //keeping the stock
                 int keep=0+dp[index+1][0];
+
+                //saving the maximum
                 profit=max(remove,keep);
             }
+
+            //keeping the maxium for buy and sell
             dp[index][buy]=profit;
         }
     }

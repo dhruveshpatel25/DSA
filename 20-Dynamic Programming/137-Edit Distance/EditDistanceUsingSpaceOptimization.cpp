@@ -30,27 +30,46 @@ int solve(string word1, string word2){
     int n=word1.length();
     int m=word2.length();
 
+    //current row
     vector<int> curr(m+1,0);
+
+    //next row
     vector<int> next(m+1,0);
+
+    //fill the last row with the cost to convert an empty substring of word1 to the remaining part of word2.
     for(int j=0;j<m;j++){
         next[j]=word2.length()-j;
     }
 
+    //iterate for all the element of first string
     for(int i=n-1;i>=0;i--){
+
+        //iterate for all the element of second string 
         for(int j=m-1;j>=0;j--){
             curr[m]=word1.length()-i;
             int ans=0;
+
+            //if same alphabet
             if(word1[i]==word2[j]){
                 ans=next[j+1];
             }else{
+
+                //insert an alphabet
                 int insertAns=1+curr[j+1];
+
+                //delete an alphabet
                 int deleteAns=1+next[j];
+
+                //replace an alphabet
                 int replaceAns=1+next[j+1];
 
+                //store the minimum of the three operation
                 ans=min(insertAns,min(deleteAns,replaceAns));
             }
             curr[j]=ans;
         }
+
+        //iterate ahead
         next=curr;
     }
 

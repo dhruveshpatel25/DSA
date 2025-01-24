@@ -23,20 +23,33 @@ bool cmp(pair<int,int> a,pair<int,int> b){
 }
 
 int activitySelection(vector<int> &start, vector<int> &end) {
-     vector<pair<int,int> > activity;
+    vector<pair<int,int> > activity;
+
+    //iterate complete array
     for(int i=0;i<start.size();i++){
+
+        //make pair with start and end time
         pair<int,int> p=make_pair(start[i],end[i]);
+
+        //push in pair array
         activity.push_back(p);
     }
 
+    //sort it according to end time
     sort(activity.begin(),activity.end(),cmp);
 
+    //including the first activity
     int count=1;
     int ansEnd=activity[0].second;
 
+    //iterate the other activity
     for(int i=1;i<start.size();i++){
+
+        //if start time of second activity is greater than the end time of previous activity then include the second meeting
         if(activity[i].first>ansEnd){
             count++;
+
+            //update the end time
             ansEnd=activity[i].second;
         }
     }

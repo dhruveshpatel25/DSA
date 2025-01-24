@@ -25,19 +25,34 @@ using namespace std;
 int solve(string& text1,string& text2){
     int n=text1.size();
     int m=text2.size();
+
+    //current row
     vector<int> curr(m+1,0);
+
+    //next row
     vector<int> next(m+1,0);
 
+    //for all the character in first string
     for(int i=n-1;i>=0;i--){
+
+        //for all the character in second string
         for(int j=m-1;j>=0;j--){
             int ans=0;
+
+            //if the text of both string
             if(text1[i]==text2[j]){
+
+                //increase the answer and move the pointer ahead
                 ans=1+next[j+1];
             }else{
+
+                //if not same then increase either of the pointer
                 ans=max(next[j],curr[j+1]);
             }
             curr[j]=ans;
         }
+
+        //iterating ahead
         next=curr;
     }
     return next[0];

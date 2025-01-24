@@ -25,23 +25,46 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/*/
 using namespace std;
 int solve(vector<int>& prices){
     int n=prices.size();
+
+    //current row
     vector<int> curr(2,0);
+
+    //next row
     vector<int> next(2,0);
 
+    //iterating all the stocks
     for(int index=n-1;index>=0;index--){
+
+        //either for buy or sell
         for(int buy=0;buy<=1;buy++){
             int profit=0;
             if(buy==1){
+
+                //including the stock
                 int include=-prices[index]+next[0];
+
+                //excluding the stock
                 int exclude=0+next[1];
+
+                //saving the maximum
                 profit=max(include,exclude);
             }else{
+
+                //removing the stock
                 int remove=prices[index]+next[1];
+
+                //keeping the stock
                 int keep=0+next[0];
+
+                //saving the maximum
                 profit=max(remove,keep);
             }
+
+            //keeping the maxium for buy and sell
             curr[buy]=profit;
         }
+        
+        //iterating ahead
         next=curr;
     }
     return next[1];

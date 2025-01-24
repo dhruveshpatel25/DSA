@@ -23,6 +23,8 @@ https://leetcode.com/problems/longest-common-subsequence/description/*/
 using namespace std;
 
 int solve(string& text1,string& text2,int i,int j,vector<vector<int>>& dp){
+
+    //base case
     if(i>=text1.size()){
         return 0;
     }
@@ -31,16 +33,22 @@ int solve(string& text1,string& text2,int i,int j,vector<vector<int>>& dp){
         return 0;
     }
 
+    //memoization
     if(dp[i][j]!=-1){
         return dp[i][j];
     }
     int ans=0;
+
+    //if the text of both string
     if(text1[i]==text2[j]){
+
+        //increase the answer and move the pointer ahead
         ans=1+solve(text1,text2,i+1,j+1,dp);
     }else{
+
+        //if not same then increase either of the pointer
         ans=max(solve(text1,text2,i+1,j,dp),solve(text1,text2,i,j+1,dp));
     }
-
     return dp[i][j]=ans;
 }
 

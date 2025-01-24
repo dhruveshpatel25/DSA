@@ -22,7 +22,11 @@ using namespace std;
 class Node{
     public:
     int data;
+
+    //left child node
     Node* left;
+
+    //right child node
     Node* right;
 
     Node (int d){
@@ -35,40 +39,63 @@ class Node{
 class cmp{
     public:
     bool operator()(Node* a,Node* b){
+
+        //save the lowest value first
         return a->data>b->data;
     }
 };
 
 void traverse(Node* root,vector<string>& ans,string temp){
+
+    //when reached lead node
     if(root->left==NULL && root->right==NULL){
         ans.push_back(temp);
         return;
     }
 
+    //recursivly call the left subtree by adding 0 to answer
     traverse(root->left,ans,temp+'0');
+
+    //recursivly call the right subtree by adding 1 to answer
     traverse(root->right,ans,temp+'1');
 }
 vector<string> huffmanCodes(string S,vector<int> f,int N){
 	priority_queue<Node*,vector<Node*>,cmp>pq;
+
+    //iterate the complete string
     for(int i=0;i<N;i++){
         Node* temp=new Node(f[i]);
         pq.push(temp);
     }
+
+    //till one sum is left add the lowest together
     while(pq.size()>1){
+
+        //first element
         Node* left=pq.top();
         pq.pop();
 
+        //second element
         Node* right=pq.top();
         pq.pop();
 
+        //add the sum of data
         Node* newNode=new Node(left->data+right->data);
+
+        //left subtree with left (lower value) node
         newNode->left=left;
+
+        //right subtree with right (higher value) node
         newNode->right=right;
+
+        //push in priority queue
         pq.push(newNode);
     }
 
     Node* root=pq.top();
     vector<string> ans;
+
+    //temporary saving the answer
     string temp="";
     traverse(root,ans,temp);
     return ans;

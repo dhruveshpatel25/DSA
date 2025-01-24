@@ -15,16 +15,24 @@ https://www.geeksforgeeks.org/problems/shop-in-candy-store1145/1*/
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> candyStore(int candies[], int N, int K)
-{
+vector<int> candyStore(int candies[], int N, int K){
+
+    //sort the candies
     sort(candies,candies+N);
     int mini=0;
     int buy=0;
     int free=N-1;
 
+    //minimum cost
     while(buy<=free){
+
+        //add to the cost
         mini=mini+candies[buy];
+
+        //iterate ahead
         buy++;
+
+        //iterate behind "K" spaces
         free=free-K;
     }
 
@@ -32,9 +40,16 @@ vector<int> candyStore(int candies[], int N, int K)
     buy=N-1;
     free=0;
 
+    //maximum cost
     while(buy>=free){
+
+        //add to the cost
         maxi=maxi+candies[buy];
+
+        //iterate behind
         buy--;
+
+        //iterate ahead "K" spaces
         free=free+K;
     }
 

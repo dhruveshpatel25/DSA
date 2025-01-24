@@ -25,12 +25,16 @@ using namespace std;
 int solve(string& s,string& p){
     int n=s.length();
     int m=p.length();
+
+    //tabulation
     vector<vector<int>> dp(n+1,vector<int>(m+1,0));
 
     dp[0][0]=true;
     for(int j=1;j<=m;j++){
         bool flag=true;
         for(int k=1;k<=j;k++){
+
+            //if there is no star(meaning it cannot be replaced with empty space) then it is false
             if(p[k-1]!='*'){
                 flag=false;
                 break;
@@ -39,13 +43,24 @@ int solve(string& s,string& p){
         dp[0][j]=flag;
     }
 
+    //iterate first string
     for(int i=1;i<=n;i++){
+
+        //iterate second string
         for(int j=1;j<=m;j++){
+
+            //if alphabet same for '?' is present iterate ahead in both
             if(s[i-1]==p[j-1] || p[j-1]=='?'){
                 dp[i][j]=dp[i-1][j-1];
-            }else if(p[j-1]=='*'){
+            }
+            
+            //if '*' is present then iterate ahead for either string
+            else if(p[j-1]=='*'){
                 dp[i][j]=(dp[i-1][j] || dp[i][j-1]);
-            }else{
+            }
+            
+            //if nothing return false
+            else{
                 dp[i][j]= false;
             }
         }

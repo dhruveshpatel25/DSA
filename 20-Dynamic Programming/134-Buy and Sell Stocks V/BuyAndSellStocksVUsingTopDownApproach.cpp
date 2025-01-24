@@ -24,24 +24,47 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-f
 using namespace std;
 
 int solve(int index,int buy,int fee,vector<int>& prices,vector<vector<int>>& dp){
+
+    //base case
     if(index>=prices.size()){
         return 0;
     }
 
+    //memoization
     if(dp[index][buy]!=-1){
         return dp[index][buy];
     }
 
     int profit=0;
+
+    //buy
     if(buy==1){
+
+        //include the stock
+        //recursivly call by increasing the pointer and flagging buy as false
         int include=-prices[index]+solve(index+1,0,fee,prices,dp);
+
+        //exclude the stock
+        //recursivly call by increasing the pointer and flagging buy as true
         int exclude=0+solve(index+1,1,fee,prices,dp);
+
+        //saving maximum from both
         profit=max(include,exclude);
     }else{
+
+        //removing the stock
+        //recursivly call by increasing the pointer and flagging buy as true and decreasing the fees
         int remove=prices[index]-fee+solve(index+1,1,fee,prices,dp);
+
+        //keeping the stock
+        //recursivly call by increasing the pointer and flagging buy as false
         int keep=0+solve(index+1,0,fee,prices,dp);
+
+        //saving maximum from both
         profit=max(remove,keep);
     }
+
+    //keeping the maxium for buy and sell
     return dp[index][buy]=profit;
 }
 

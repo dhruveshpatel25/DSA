@@ -18,23 +18,48 @@ using namespace std;
 
 int solve(int k,vector<int>& prices){
     int n=prices.size();
+
+    //current row
     vector<int> curr(2*k+1,0);
+
+    //next row
     vector<int> next(2*k+1,0);
 
+    //iterating all the stocks
     for(int index=n-1;index>=0;index--){
+
+        //different operation number
         for(int operationNo=0;operationNo<2*k;operationNo++){
             int profit=0;
+
+            //buy
             if(operationNo%2==0){
+
+                //including the stock
                 int include=-prices[index]+next[operationNo+1];
+
+                //excluding the stock
                 int exclude=0+next[operationNo];
+
+                //saving the maximum
                 profit=max(include,exclude);
             }else{
+
+                //removing the stock
                 int remove=prices[index]+next[operationNo+1];
+
+                //keeping the stock
                 int keep=0+next[operationNo];
+
+                //saving the maximum
                 profit=max(remove,keep);
             }
+
+            //keeping the maxium for buy and sell and with operation number
             curr[operationNo]=profit;
         }
+
+        //iterating ahead
         next=curr;
     }
 

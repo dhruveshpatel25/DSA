@@ -24,6 +24,8 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/*/
 using namespace std;
 
 int solve(int index,int buy,int limit,vector<int>& prices,vector<vector<vector<int>>>& dp){
+
+    //base cases
     if(index>=prices.size()){
         return 0;
     }
@@ -32,20 +34,39 @@ int solve(int index,int buy,int limit,vector<int>& prices,vector<vector<vector<i
         return 0;
     }
 
+    //memoization
     if(dp[index][buy][limit]!=-1){
         return dp[index][buy][limit];
     }
 
     int profit=0;
     if(buy==1){
+
+        //include the stock
+        //recursivly call by increasing the pointer and flagging buy as false and keeping the limit same
         int include=-prices[index]+solve(index+1,0,limit,prices,dp);
+
+        //exclude the stock
+        //recursivly call by increasing the pointer and flagging buy as true
         int exclude=0+solve(index+1,1,limit,prices,dp);
+
+        //saving maximum from both
         profit=max(include,exclude);
     }else{
+
+        //removing the stock
+        //recursivly call by increasing the pointer and flagging buy as true and decreasing the limit
         int remove=prices[index]+solve(index+1,1,limit-1,prices,dp);
+
+        //keeping the stock
+        //recursivly call by increasing the pointer and flagging buy as false
         int keep=0+solve(index+1,0,limit,prices,dp);
+
+        //saving maximum from both
         profit=max(remove,keep);
     }
+
+    //keeping the maxium for buy and sell and with the limit
     return dp[index][buy][limit]=profit;
 }
 

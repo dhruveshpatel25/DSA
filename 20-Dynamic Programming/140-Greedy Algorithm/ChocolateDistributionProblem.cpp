@@ -26,9 +26,17 @@ int findMinDiff(vector<int>& a, int m) {
     int j=m-1;
 
     int mini=INT_MAX;
+
+    //till the window end reached the array last point
     while(j<a.size()){
+
+        //get the difference
         int diff=a[j]-a[i];
+
+        //save the minimum
         mini=min(mini,diff);
+
+        //move ahead
         i++;
         j++;
     }

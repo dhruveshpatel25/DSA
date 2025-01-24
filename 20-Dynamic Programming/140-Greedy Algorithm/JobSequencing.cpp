@@ -28,14 +28,23 @@ bool cmp(pair<int,int> a,pair<int,int> b){
 vector<int> JobSequencing(vector<int> &id, vector<int> &deadline,vector<int> &profit) {
     int n=deadline.size();
     vector<pair<int,int>> jobs;
+
+    //iterate the array
     for(int i=0;i<n;i++){
+
+        //make pair with profit and deadline
         pair<int,int> p=make_pair(profit[i],deadline[i]);
+
+        //push in pair array
         jobs.push_back(p);
     }
 
+    //sort jobs according to profit
     sort(jobs.begin(),jobs.end(),cmp);
 
     int maxDeadline=0;
+
+    //to get the maximum deadline possible
     for(int i=0;i<n;i++){
         maxDeadline=max(maxDeadline,jobs[i].second);
     }
@@ -44,11 +53,23 @@ vector<int> JobSequencing(vector<int> &id, vector<int> &deadline,vector<int> &pr
 
     int totalJobs=0;
     int totalProfit=0;
+
+    //iterate complete array
     for(int i=0;i<n;i++){
+
+        //all the deadlines possible for the particular job
         for(int j=jobs[i].second;j>0;j--){
+
+            //if empty space
             if(schedule[j]==-1){
+
+                //put the job
                 schedule[j]=i;
+
+                //increase the counter
                 totalJobs++;
+
+                //increase the profit
                 totalProfit=totalProfit+jobs[i].first;
                 break;
             }

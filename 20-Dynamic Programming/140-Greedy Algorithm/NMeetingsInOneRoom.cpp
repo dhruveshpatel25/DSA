@@ -23,19 +23,32 @@ bool cmp(pair<int,int> a,pair<int,int> b){
 
 int maxMeetings(vector<int>& start, vector<int>& end) {
     vector<pair<int,int> > meeting;
+
+    //iterate the complete array
     for(int i=0;i<start.size();i++){
+
+        //make pair with start time and end time
         pair<int,int> p=make_pair(start[i],end[i]);
+
+        //push in pair array
         meeting.push_back(p);
     }
 
+    //sort it according to end time
     sort(meeting.begin(),meeting.end(),cmp);
 
+    //including the first meeting
     int count=1;
     int ansEnd=meeting[0].second;
 
+    //iterate the other meetings
     for(int i=1;i<start.size();i++){
+        
+        //if start time of second meeting is greater than the end time of previous meeting then include the second meeting
         if(meeting[i].first>ansEnd){
             count++;
+
+            //update the end time
             ansEnd=meeting[i].second;
         }
     }

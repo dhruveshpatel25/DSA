@@ -30,25 +30,41 @@ int solve(string word1, string word2){
     int n=word1.length();
     int m=word2.length();
 
+    //tabulation
     vector<vector<int>> dp(n+1,vector<int>(m+1,0));
+
+    // Base case: Fill the last row with the cost to convert an empty substring of word1 to the remaining part of word2.
     for(int j=0;j<m;j++){
         dp[n][j]=word2.length()-j;
     }
 
+    // Base case: Fill the last column with the cost to convert an empty substring of word2 to the remaining part of word1.
     for(int i=0;i<word1.length();i++){
         dp[i][m]=word1.length()-i;
     }
 
+    //iterate for all the element of first string 
     for(int i=n-1;i>=0;i--){
+
+        //iterate for all the element of second string 
         for(int j=m-1;j>=0;j--){
             int ans=0;
+
+            //if same alphabet
             if(word1[i]==word2[j]){
                 ans=dp[i+1][j+1];
             }else{
+
+                //insert an alphabet
                 int insertAns=1+dp[i][j+1];
+
+                //delete an alphabet
                 int deleteAns=1+dp[i+1][j];
+
+                //replace an alphabet
                 int replaceAns=1+dp[i+1][j+1];
 
+                //store the minimum of the three operation
                 ans=min(insertAns,min(deleteAns,replaceAns));
             }
             dp[i][j]=ans;

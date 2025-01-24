@@ -19,27 +19,53 @@ https://www.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1*/
 using namespace std;
 
 bool cmp(pair<double,int> a,pair<double,int> b){
+
+    //comapre per unit value
     return a.first>b.first;
 }
 double fractionalKnapsack(vector<int>& val, vector<int>& wt, int capacity) {
     int n=val.size();
     vector<pair<double,int>> v;
+
+    //iterate both the array
     for(int i=0;i<n;i++){
+
+        //save the per unit value 
         double perUnitValue = val[i]/wt[i];
+
+        //make a pair of per unit value with index
         pair<double,int> p = make_pair(perUnitValue,i);
+
+        //push in pair array
         v.push_back(p);
     }
 
+    //sort it according to the per unit value in decreasing value
     sort(v.begin(),v.end(),cmp);
 
     double totalValue=0;
+
+    //iterate the pair array
     for(int i=0;i<n;i++){
+
+        //get the original index
         int index=v[i].second;
+
+        //if weight is greater than capacity
         if(wt[index]>capacity){
+
+            //take the fractional part
             totalValue=totalValue+val[index]*((double)capacity/wt[index]);
             break;
-        }else{
+        }
+        
+        //if weight is lower than take complete
+        else{
+
+            //complete value
             totalValue=totalValue+val[index];
+
+            //capacity decreases
             capacity=capacity-wt[index];
         }
     }

@@ -27,6 +27,8 @@ https://leetcode.com/problems/edit-distance/description/*/
 using namespace std;
 
 int solve(string& a,string& b,int i,int j,vector<vector<int>>& dp){
+
+    //base case
     if(i==a.length()){
         return b.length()-j;
     }
@@ -35,17 +37,27 @@ int solve(string& a,string& b,int i,int j,vector<vector<int>>& dp){
         return a.length()-i;
     }
 
+    //memoization
     if(dp[i][j]!=-1){
         return dp[i][j];
     }
     int ans=0;
+
+    //if same increase both the pointers
     if(a[i]==b[j]){
         ans=solve(a,b,i+1,j+1,dp);
     }else{
+
+        //insert an alphabet
         int insertAns=1+solve(a,b,i,j+1,dp);
+
+        //delete an alphabet
         int deleteAns=1+solve(a,b,i+1,j,dp);
+
+        //replace an alphabet
         int replaceAns=1+solve(a,b,i+1,j+1,dp);
 
+        //store the minimum of the three operation
         ans=min(insertAns,min(deleteAns,replaceAns));
     }
 
