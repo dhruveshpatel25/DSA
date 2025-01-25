@@ -20,7 +20,7 @@ The repository is organized into folders based on topics and difficulty levels:
 
 Each folder contains:
 1. Problem statements
-2. Solution files (in languages like C++, Python, or Java)
+2. Solution files (in language C++)
 3. Explanation/Comments for better understanding
 
 ---
