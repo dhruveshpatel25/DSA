@@ -47,13 +47,25 @@ https://leetcode.com/problems/guess-number-higher-or-lower-ii/description/*/
 using namespace std;
 
 int solve(int n){
+
+    //tabulation
     vector<vector<int>> dp(n+2,vector<int>(n+2,0));
+
+    //start from the number till 1
     for(int start=n;start>=1;start--){
+
+        //iterate all the possible combination from start to the number
         for(int end=start;end<=n;end++){
+
+            //if start and end are same skip it
             if(start==end){
                 continue;
             }else{
+
+                //if not
                 int ans=INT_MAX;
+
+                //find the possible answer for guess
                 for(int i=start;i<=end;i++){
                     ans=min(ans,i+max(dp[start][i-1],dp[i+1][end]));
                 }

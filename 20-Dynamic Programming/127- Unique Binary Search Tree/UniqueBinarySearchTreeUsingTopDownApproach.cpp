@@ -13,16 +13,23 @@ https://leetcode.com/problems/unique-binary-search-trees/description/*/
 using namespace std;
 
 int solve(int n,vector<int>& dp){
+
+    //base case
     if(n<=1){
         return 1;
     }
 
+    //memoization
     if(dp[n]!=-1){
         return dp[n];
     }
 
     int ans=0;
+
+    //iterate for all the nodes possible
     for(int i=1;i<=n;i++){
+
+        //multiply left subtree(containg all unique binary search tree till i) and right subtree(containg all subtree from i to n)
         ans=ans+solve(i-1,dp)*solve(n-i,dp);
     }
     return dp[n]=ans;

@@ -15,16 +15,23 @@ https://www.geeksforgeeks.org/problems/longest-arithmetic-progression1019/1*/
 using namespace std;
 
 int solve(int index,int diff,vector<int>& arr,unordered_map<int,int> dp[]){
+
+    //base case
     if(index<0){
         return 0;
     }
 
+    //memoization
     if(dp[index].count(diff)){
         return dp[index][diff];
     }
 
     int ans=0;
+
+    //all the previous element before 'i'
     for(int j=index-1;j>=0;j--){
+
+        //if difference same then check if there exist 'same difference'
         if(arr[index]-arr[j]==diff){
             ans=max(ans,1+solve(j,diff,arr,dp));
         }
@@ -40,9 +47,16 @@ int lengthOfLongestAP(vector<int>& arr) {
 
     int ans=0;
     unordered_map<int,int>dp[n+1];
+
+    //iterate for all the element
     for(int i=0;i<n;i++){
+
+        //pointer ahead of i
         for(int j=i+1;j<n;j++){
+
+            //find the max of answer
             ans=max(ans,2+solve(i,arr[j]-arr[i],arr,dp));
+            
         }
     }
     return ans;
@@ -54,7 +68,7 @@ int main() {
     cout << "Length of Longest Arithmetic Progression for arr1: "
          << lengthOfLongestAP(arr1) << endl;
 
-    // Example test case 2
+    /*// Example test case 2
     vector<int> arr2 = {2, 4, 6, 8, 10};
     cout << "Length of Longest Arithmetic Progression for arr2: "
          << lengthOfLongestAP(arr2) << endl;
@@ -70,7 +84,7 @@ int main() {
 
     vector<int> arr5 = {1, 5, 9, 13, 17, 21, 25};
     cout << "Length of Longest Arithmetic Progression for arr5: "
-         << lengthOfLongestAP(arr5) << endl;
+         << lengthOfLongestAP(arr5) << endl;*/
 
     return 0;
 }

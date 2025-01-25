@@ -17,8 +17,13 @@ int solve(int n){
     dp[0]=1;
     dp[1]=1;
 
+    //iterate from 2 to n
     for(int i=2;i<=n;i++){
+
+        //iterate from 1 to i
         for(int j=1;j<=i;j++){
+
+            //multiply from every bst from j-1 and i-j
             dp[i]+=dp[j-1]*dp[i-j];
         }
     }

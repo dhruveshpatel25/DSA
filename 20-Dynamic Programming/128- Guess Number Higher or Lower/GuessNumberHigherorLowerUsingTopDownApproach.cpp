@@ -47,16 +47,22 @@ https://leetcode.com/problems/guess-number-higher-or-lower-ii/description/*/
 using namespace std;
 
 int solve(int start,int end,vector<vector<int>>& dp){
+
+    //base case
     if(start>=end){
         return 0;
     }
 
+    //memoization
     if(dp[start][end]!=-1){
         return dp[start][end];
     }
 
     int ans=INT_MAX;
     for(int i=start;i<=end;i++){
+
+        //get the minimum cost of guessing the number
+        //cost will be current number(i)+maximum of both the subtree
         ans=min(ans,i+max(solve(start,i-1,dp),solve(i+1,end,dp)));
     }
     return dp[start][end]=ans;

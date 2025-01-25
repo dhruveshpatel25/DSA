@@ -16,21 +16,32 @@ using namespace std;
 
 int solve(vector<int>& arr,int n){
 
+    //base case
     if(n<=2){
         return n;
     }
     int ans=0;
     unordered_map<int,int> dp[n+1];
+
+    //start from 2nd element
     for(int i=1;i<n;i++){
+
+        //iterate all previous element before 'i'
         for(int j=0;j<i;j++){
+
+            //get the difference
             int diff=arr[i]-arr[j];
             int count=1;
 
+            //check if there exist for particular previous element any count
             if(dp[j].count(diff)){
                 count=dp[j][diff];
             }
 
+            //add the count to the current element
             dp[i][diff]=1+count;
+
+            //save the maximum value
             ans=max(ans,dp[i][diff]);
         }
     }

@@ -23,14 +23,26 @@ using namespace std;
 int longestSubsequence(vector<int>& arr, int difference) {
     unordered_map<int,int> dp;
     int ans=0;
+
+    //iterate all the element
     for(int i=0;i<arr.size();i++){
-        int temp=arr[i]-difference;
-        int tempAns=0;
-        if(dp.count(temp)){
-            tempAns=dp[temp];
-        }
-        dp[arr[i]]=1+tempAns;
-        ans=max(ans,dp[arr[i]]);
+
+          //find the possible next ap value
+          int temp=arr[i]-difference;
+
+          //counter
+          int tempAns=0;
+
+          //check if there exist a value for the 'next ap value'
+          if(dp.count(temp)){
+               tempAns=dp[temp];
+          }
+
+          //add the count for current value
+          dp[arr[i]]=1+tempAns;
+
+          //save the maximum value
+          ans=max(ans,dp[arr[i]]);
     }
     return ans;
 }
